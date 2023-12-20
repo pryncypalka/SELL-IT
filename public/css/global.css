@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+   }
+   nav {
+    background-color: black;
+    color: white;
+    height: 80px;
+    width: 100%;
+    font-size: 1.5rem;
+   }
+   nav > ul {
+    gap: 2em;
+   }
+   main {
+    width: 100vw;
+    background-color: aquamarine;
+   }
+   main > .elements {
+    background-color: beige;
+    width: calc((100vw / 3) * 2);
+   }
+   main > .sidebar {
+    background-color: rgb(255, 230, 210);
+    width: calc(100vw / 3);
+   }
+   main > .container > img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+   }
+   .flex-row-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
