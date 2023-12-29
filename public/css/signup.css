@@ -1,0 +1,144 @@
+
+.content {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vw;
+    padding: 20px;
+
+
+}
+
+.logo {
+    margin: 20px;
+    border-radius: 30px;
+    background: url(../assets/logo.png) lightgray 50% / cover no-repeat;
+}
+
+.textLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+/* write css code to center login_text on img: sing_up in html */
+
+
+.login_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    margin-left: auto;
+
+      /* Ustawienia dla przycisku */
+  display: inline-block;
+  padding: 0; 
+  border: none;
+  background: url('../../public/assets/log_in.svg') no-repeat center center;
+  background-size: cover;
+  width: 200px; 
+  height: 60px;
+  cursor: pointer;
+
+  /* Styl tekstu na przycisku */
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; 
+  text-align: center;
+
+}
+
+.sign_up_button {
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+
+    /* Ustawienia dla przycisku */
+  display: inline-block;
+  padding: 0; 
+  border: none;
+  background: url('../../public/assets/sign_up.svg') no-repeat center center;
+  background-size: cover;
+  width: 200px; 
+  height: 60px;
+  cursor: pointer;
+
+  /* Styl tekstu na przycisku */
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; 
+  text-align: center;
+}
+
+
+
+.text1 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 30;
+}
+
+.text2 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 70px;
+}
+
+.field_name {
+    color: #858597;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input_field input {
+    width: 100%;
+    height: 60px;
+    
+    border: none;
+    outline: none;
+    background: url(../assets/input_bg.svg) no-repeat;
+    
+    color: #FFF; /* Kolor tekstu */
+  }
+
+
+/* 
+@media only screen and (max-width: 500px) {
+    
+    
+    
+
+} */

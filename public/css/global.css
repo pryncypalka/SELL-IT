@@ -1,35 +1,17 @@
 body {
     margin: 0;
-   }
-   nav {
-    background-color: black;
-    color: white;
-    height: 80px;
-    width: 100%;
-    font-size: 1.5rem;
-   }
-   nav > ul {
-    gap: 2em;
-   }
-   main {
-    width: 100vw;
-    background-color: aquamarine;
-   }
-   main > .elements {
-    background-color: beige;
-    width: calc((100vw / 3) * 2);
-   }
-   main > .sidebar {
-    background-color: rgb(255, 230, 210);
-    width: calc(100vw / 3);
-   }
-   main > .container > img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-   }
-   .flex-row-center-center {
+    overflow: hidden;
+}
+
+.base-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-   }
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: linear-gradient(180deg, #002842 0%, rgba(0, 155, 255, 0.70) 100%), linear-gradient(180deg, #FFF 0%, rgba(60, 179, 255, 0.70) 100%);
+}
+
+

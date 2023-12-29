@@ -1,18 +1,4 @@
-body {
-    margin: 0;
-    overflow: hidden;
-}
 
-.base-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: linear-gradient(180deg, #002842 0%, rgba(0, 155, 255, 0.70) 100%), linear-gradient(180deg, #FFF 0%, rgba(60, 179, 255, 0.70) 100%);
-}
 
 .content {
     display: flex;
@@ -28,6 +14,13 @@ body {
 .right_column {
     flex: 1;
     max-width: 70%;
+}
+
+.shopping_bro {
+    max-width: 100%;
+    height: auto;
+    
+
 }
 
 nav {
@@ -67,24 +60,53 @@ nav {
     text-align: center;
     
     margin-left: auto;
+
+      /* Ustawienia dla przycisku */
+  display: inline-block;
+  padding: 0; 
+  border: none;
+  background: url('../../public/assets/log_in.svg') no-repeat center center;
+  background-size: cover;
+  width: 200px; 
+  height: 60px;
+  cursor: pointer;
+
+  /* Styl tekstu na przycisku */
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; 
+  text-align: center;
+
 }
 
 .sign_up_button {
     margin: 20px;
     align-items: center;
     justify-content: center;
+
+    /* Ustawienia dla przycisku */
+  display: inline-block;
+  padding: 0; 
+  border: none;
+  background: url('../../public/assets/sign_up.svg') no-repeat center center;
+  background-size: cover;
+  width: 200px; 
+  height: 60px;
+  cursor: pointer;
+
+  /* Styl tekstu na przycisku */
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; 
+  text-align: center;
 }
 
-.login_text {
-    display: flex; 
-    color: #FFF;
-    font-family: 'Poppins', sans-serif; 
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    background-size: cover;
-}
 
 
 .text1 {
@@ -116,4 +138,56 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .text2 {
+        display: none;
+    }
+    .time_menagement {
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+    }
+    
+    .left_column {
+        
+        max-width: 100%;
+    }
+    
+    .right_column {
+        
+        max-width: 100%;
+    }
+
+    nav {
+        flex-direction: column; /* Ustawienie flex-direction na "column" */
+        align-items: center; /* Wyśrodkowanie elementów wzdłuż osi poziomej */
+        height: auto; /* Usunięcie stałej wysokości, aby elementy mogły się dostosować */
+    }
+
+    .login_button {
+        margin: 20px auto;
+    
+    }
+    
+    .sign_up_button {
+        margin: 20px auto;
+    }
+
+    .login_button,
+    .sign_up_button {
+        margin: 10px; 
+    }
+    .text1 {
+        text-align: center;
+    }
+    
+    
+
 }

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boarding</title>
-    <link rel="stylesheet" href="../css/boarding.css">
+    <link rel="stylesheet" href="../../public/css/boarding.css">
+    <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap"
@@ -15,20 +16,14 @@
 <body>
     <div class="base-container">
         <nav>
-            <img class="logo" src="../assets/logo.png" alt="Logo">
+            <img class="logo" src="../../public/assets/logo.png" alt="Logo">
             <div class="textLogo">SELL-IT</div>
-            <div class="login_button">
-                <img class="login" src="../assets/log_in.svg" alt="log-in">
-                <div class="login_text">Log in</div>
-            </div>
-            <div class="sign_up_button">
-                <img class="sign_up" src="../assets/sign_up.svg" alt="sign_up">
-                <div class="login_text">Sign up</div>
-            </div>
+            <button class="login_button">Log in</button>
+            <button class="sign_up_button">Sign up</button>
         </nav>
         <div class="content">
             <div class="left_column">
-                <img class="shopping_bro" src="../assets/Online shopping-bro.svg" alt="shopping-bro">
+                <img class="shopping_bro" src="../../public/assets/Online shopping-bro.svg" alt="shopping-bro">
             </div>
 
             <div class="right_column">
@@ -42,7 +37,7 @@
                     items.
                 </div>
                 <div class="time_menagement">
-                    <img class="time" src="../assets/Time management.svg" alt="time management">
+                    <img class="time" src="../../public/assets/Time management.svg" alt="time management">
                 </div>
             </div>
         </div>
