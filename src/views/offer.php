@@ -6,9 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div id='app'>
-        <h1>Offer</h1>
-        <p>Offer page</p>
-        <a href='/'>Home</a>
+    
 </body>
 </html>
