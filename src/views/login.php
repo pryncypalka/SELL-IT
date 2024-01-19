@@ -21,16 +21,23 @@
             <button class="sign_up_button">Sign up</button>
         </nav>
         <div class="content">
-            <form class=" form_login" action="log_in" method="POST">
+            <form class=" form_login" action="login" method="POST">
                 <div class="text1">Sign up</div>
                 <div class="text2">Create your account. It's free and only takes a minute.</div>
+                <?php
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                    ?>
                 <div class = field_name>Your Email</div>
                 <div class="input_field">
                     <input type="text" name="email" >
                 </div>
                 <div class = field_name>Password</div>
                 <div class="input_field">
-                    <input type="text" name="password" >
+                    <input type="password" name="password" >
                 </div>
                 <div class = field_name>Forget password?</div>
                 <button class="sign_up_button" type="submit">Log in</button>
@@ -38,6 +45,8 @@
                 <a class="signup_link" href="/signup">Sign up</a>
                 
             </form>
+
+            
 
             <div class="picture_box">
                     <img class="picture" src="../../public/assets/sign_in_image.svg" alt="image">  

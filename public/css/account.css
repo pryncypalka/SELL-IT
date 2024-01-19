@@ -1,0 +1,10 @@
+section.avatar-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatar-form>form {
+    display: flex;
+    flex-direction: column;
+}
