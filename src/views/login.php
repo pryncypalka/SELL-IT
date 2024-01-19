@@ -17,13 +17,11 @@
         <nav>
             <img class="logo" src="../../public/assets/logo.png" alt="Logo">
             <div class="textLogo">SELL-IT</div>
-            <button class="login_button">Log in</button>
-            <button class="sign_up_button">Sign up</button>
         </nav>
         <div class="content">
             <form class=" form_login" action="login" method="POST">
-                <div class="text1">Sign up</div>
-                <div class="text2">Create your account. It's free and only takes a minute.</div>
+                <div class="text1">Log in</div>
+                <div class="text2">Enter your details below</div>
                 <?php
                         if(isset($messages)){
                             foreach($messages as $message) {
@@ -40,7 +38,7 @@
                     <input type="password" name="password" >
                 </div>
                 <div class = field_name>Forget password?</div>
-                <button class="sign_up_button" type="submit">Log in</button>
+                <button class="log_in_button" type="submit">Log in</button>
                 <div class = field_name>Don't have an account?</div>
                 <a class="signup_link" href="/signup">Sign up</a>
                 
@@ -49,7 +47,9 @@
             
 
             <div class="picture_box">
-                    <img class="picture" src="../../public/assets/sign_in_image.svg" alt="image">  
+                    <img class="picture" src="../../public/assets/login_image.svg" alt="image">  
             </div>
         </div>
     </div>
+    </body>
+</html>

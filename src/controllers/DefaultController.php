@@ -33,8 +33,4 @@ class DefaultController extends AppController {
     public function verified() {
         $this->render("verified");
     }
-
-    public function test() {
-        $this->render("test");
-    }
 }   

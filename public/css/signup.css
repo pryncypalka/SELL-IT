@@ -9,7 +9,7 @@
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: initial;
     width: 100vw;
     height: 10vw;
     padding: 20px;
@@ -35,44 +35,16 @@ nav {
     font-weight: 700;
     line-height: normal;
 }
-/* write css code to center login_text on img: sing_up in html */
 
-
-.login_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    margin-left: auto;
-
-      /* Ustawienia dla przycisku */
-  display: inline-block;
-  padding: 0; 
-  border: none;
-  background: url('../../public/assets/log_in.svg') no-repeat center center;
-  background-size: cover;
-  width: 200px; 
-  height: 60px;
-  cursor: pointer;
-
-  /* Styl tekstu na przycisku */
-  color: #FFF;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 60px; 
-  text-align: center;
-
-}
 
 .sign_up_button {
     margin: 20px;
     align-items: center;
     justify-content: center;
 
-    /* Ustawienia dla przycisku */
+
+
+    
   display: inline-block;
   padding: 0; 
   border: none;
@@ -82,7 +54,7 @@ nav {
   height: 60px;
   cursor: pointer;
 
-  /* Styl tekstu na przycisku */
+  
   color: #FFF;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -93,6 +65,17 @@ nav {
 }
 
 
+
+
+.form_sign_up {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
+    width: 40vw;
+    
+    
+
+}
 
 .text1 {
     color: #FFF;
@@ -111,34 +94,51 @@ nav {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
 }
 
 .field_name {
-    color: #858597;
+    color: #FFF;
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 10px;
 }
 
 .input_field input {
-    width: 100%;
-    height: 60px;
-    
+    width: 400px;
+    height: 50px;
     border: none;
     outline: none;
-    background: url(../assets/input_bg.svg) no-repeat;
-    
+    background-color: #3E3E55;
+    border-radius: 12px;
+    background-size: cover;
+    padding-left: 5%;
+    max-width: 95%; 
+    overflow: hidden; 
+    white-space: nowrap;
+    box-sizing: border-box;
     color: #FFF; /* Kolor tekstu */
   }
 
 
-/* 
+
 @media only screen and (max-width: 500px) {
     
-    
-    
+   
+    .form_sign_up {
+        width: 80vw;
+       
+    }
+    .picture_box {
+        display: none;
+    }
+    nav {
+        display: flex;
+        height: auto;
+        justify-content: initial;
+    }
 
-} */
+}

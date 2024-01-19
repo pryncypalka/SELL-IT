@@ -1,9 +1,10 @@
 body {
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .base-container {
+    overflow: auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;

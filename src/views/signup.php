@@ -17,8 +17,6 @@
         <nav>
             <img class="logo" src="../../public/assets/logo.png" alt="Logo">
             <div class="textLogo">SELL-IT</div>
-            <button class="login_button">Log in</button>
-            <button class="sign_up_button">Sign up</button>
         </nav>
         <div class="content">
             <form class=" form_sign_up" action="signup" method="POST">
@@ -30,7 +28,7 @@
                 </div>
                 <div class = field_name>Password</div>
                 <div class="input_field">
-                    <input type="text" name="password" >
+                    <input type="password" name="password" >
                 </div>
                 <div class = field_name>Confirm password</div>
                 
@@ -43,11 +41,11 @@
                 <a class="login_link" href="/login">Log in</a>
             </form>
 
+
             <div class="picture_box">
                     <img class="picture" src="../../public/assets/sign_in_image.svg" alt="image">  
             </div>
         </div>
     </div>
-    
 </body>
 </html>
