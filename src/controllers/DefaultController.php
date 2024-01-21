@@ -30,7 +30,7 @@ class DefaultController extends AppController {
         $this->render("signup");
     }
 
-    public function verified() {
-        $this->render("verified");
+    public function create() {
+        $this->render("create");
     }
 }   
