@@ -14,7 +14,6 @@ nav {
     height: 10vw;
     padding: 20px;
 
-
 }
 .logo_container {
     display: flex;
@@ -78,15 +77,15 @@ nav {
     margin-left: 5vw;
     overflow: hidden;
     width: 40vw;
+    height: 80vh;
 
-    position: relative; /* Ustawienie pozycji na relative */
 }
 
 .offer_tiles_container {
     overflow-x: auto;
 
     width: 40vw;
-    height: 450px;
+    /*height: 450px;*/
 
 
 }
@@ -223,12 +222,67 @@ nav {
     padding-right: 3vw;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 500px) {
 
-    nav {
-        display: flex;
+    .avatarImage{
+        display: none;
+    }
+    .template_tiles_container {
+        white-space: nowrap;
+    }
+    .content {
+        display: block;
+    }
+    .templates_box {
         height: auto;
-        justify-content: initial;
+        width: 80vw;
+    }
+    .template_tiles_container {
+        width: 80vw;
+    }
+    .offers_box {
+        width: 80vw;
+    }
+    .offer_tiles_container {
+        width: 80vw;
+    }
+    .offer_tile {
+        width: 80vw;
+    }
+
+    nav {
+        display: block;
+        height: 15vh;
+    }
+
+    .offer_image
+    {
+        width: 75px;
+        height: 75px;
+        border-radius: 12px;
+    }
+    .offer_name {
+        font-size: 14px;
+    }
+    .offer_first_line {
+        font-size: 10px;
+    }
+    .offer_price {
+        font-size: 14px;
+    }
+    .offer_date {
+        font-size: 10px;
+    }
+    .template_name {
+        font-size: 14px;
+    }
+
+    .Options {
+        width: auto;
     }
 
 }

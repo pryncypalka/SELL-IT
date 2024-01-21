@@ -20,9 +20,9 @@
                 <div class="textLogo">SELL-IT</div>
             </div>
             <div class="Options">
-                <div class="textHome">HOME</div>
-                <div class="textCreate">CREATE</div>
-                <div class="textAccount">ACCOUNT</div>
+                <a class="textHome" href="/dashboard">HOME</a>
+                <a class="textCreate" href="/create">CREATE</a>
+                <a class="textAccount" href="/account">ACCOUNT</a>
             </div>
             <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
         </nav>
