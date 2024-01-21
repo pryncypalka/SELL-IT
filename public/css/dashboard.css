@@ -1,0 +1,234 @@
+
+.content {
+    display: flex;
+    flex: 1;
+
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vw;
+    padding: 20px;
+
+
+}
+.logo_container {
+    display: flex;
+    align-items: center; /* Wyrównanie elementów na osi krzyżowej */
+}
+
+.logo {
+    margin: 20px;
+    border-radius: 30px;
+    background: url(../assets/logo.png) lightgray 50% / cover no-repeat;
+}
+
+.Options {
+    display: flex;
+    width: 50vw;
+    justify-content: space-around;
+}
+
+.textLogo, .textHome, .textCreate, .textAccount  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.your_offers, .your_templates {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.search_field input {
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: #3E3E55;
+    border-radius: 12px;
+    background-size: cover;
+    padding-left: 5%;
+    max-width: 95%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: #FFF; /* Kolor tekstu */
+}
+
+.offers_box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    overflow: hidden;
+    width: 40vw;
+
+    position: relative; /* Ustawienie pozycji na relative */
+}
+
+.offer_tiles_container {
+    overflow-x: auto;
+
+    width: 40vw;
+    height: 450px;
+
+
+}
+
+.offer_tile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 400px;
+    height: 150px;
+    background-color: #2F2F42;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+.templates_box {
+    margin-left: 5vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.template_tiles_container {
+    /*white-space: nowrap;*/
+    overflow-y: auto;
+    flex: 1;
+    width: 40vw;
+    height: 300px;
+
+}
+
+.template_date {
+    color: #FF6905;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.template_first_line {
+    color: #2F2F42;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.template_name {
+    margin-top: 20px;
+    color: #2F2F42;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.template_tile {
+    display: inline-block;
+    margin-right: 10px;
+    width: 200px;
+    height: 150px;
+    background-color: #CADAF8;
+    border-radius: 12px;
+    background-size: cover;
+    padding-left: 5%;
+    max-width: 95%;
+    overflow: hidden;
+
+
+
+}
+
+.offer_name {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.offer_first_line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.offer_price {
+    color: #3D5CFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.offer_date {
+    color: #FF6905;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.offer_image {
+    margin-left: 10px;
+    margin-right: 5px;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+}
+
+.avatarImage{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    padding-right: 3vw;
+}
+
+@media only screen and (max-width: 500px) {
+
+    nav {
+        display: flex;
+        height: auto;
+        justify-content: initial;
+    }
+
+}

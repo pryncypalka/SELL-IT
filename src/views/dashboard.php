@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign_up</title>
+    <title>HomePage</title>
     <link rel="stylesheet" href="../../public/css/dashboard.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,41 +15,143 @@
 <body>
     <div class="base-container">
         <nav>
-            <img class="logo" src="../../public/assets/logo.png" alt="Logo">
-            <div class="textLogo">SELL-IT</div>
+            <div class="logo_container">
+                <img class="logo" src="../../public/assets/logo.png" alt="Logo">
+                <div class="textLogo">SELL-IT</div>
+            </div>
+            <div class="Options">
+                <div class="textHome">HOME</div>
+                <div class="textCreate">CREATE</div>
+                <div class="textAccount">ACCOUNT</div>
+            </div>
+            <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
         </nav>
         <div class="content">
-            <form class=" form_login" action="login" method="POST">
-                <div class="text1">Log in</div>
-                <div class="text2">Enter your details below</div>
-                <?php
-                        if(isset($messages)){
-                            foreach($messages as $message) {
-                                echo $message;
-                            }
-                        }
-                    ?>
-                <div class = field_name>Your Email</div>
-                <div class="input_field">
-                    <input type="text" name="email" >
+            <div class="templates_box">
+                <div class="your_templates">Your templates</div>
+                <div class="template_tiles_container">
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name namen amena mena mename</div>
+                        <div class="template_date">datename name name nam ename</div>
+                        <div class="template_first_line">descript ionna mename namena mename</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
+                    <div class="template_tile">
+                        <div class="template_name">name</div>
+                        <div class="template_date">date</div>
+                        <div class="template_first_line">description</div>
+                    </div>
                 </div>
-                <div class = field_name>Password</div>
-                <div class="input_field">
-                    <input type="password" name="password" >
-                </div>
-                <div class = field_name>Forget password?</div>
-                <button class="log_in_button" type="submit">Log in</button>
-                <div class = field_name>Don't have an account?</div>
-                <a class="signup_link" href="/signup">Sign up</a>
-                
-            </form>
-
-            
-
-            <div class="picture_box">
-                    <img class="picture" src="../../public/assets/login_image.svg" alt="image">  
             </div>
-        </div>
+
+            <div class="offers_box">
+                <div class="your_offers">Your Offers</div>
+                <div class="search_field">
+                    <input  type="text" name="search" placeholder="Find your offer">
+                </div>
+                <div class="offer_tiles_container">
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div><div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                    <div class="offer_tile">
+                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
+                        <div class="offer_info">
+                            <div class="offer_name">name</div>
+                            <div class="offer_first_line">description</div>
+                            <div class="offer_price">price</div>
+                            <div class="offer_date">date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
-    </body>
+</body>
 </html>

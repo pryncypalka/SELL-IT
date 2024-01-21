@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign_up</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="../../public/css/login.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,9 +47,10 @@
             
 
             <div class="picture_box">
-                    <img class="picture" src="../../public/assets/login_image.svg" alt="image">  
+                    <img class="picture" src="../../public/assets/Login_image.svg" alt="image">
             </div>
         </div>
     </div>
-    </body>
+
+</body>
 </html>
