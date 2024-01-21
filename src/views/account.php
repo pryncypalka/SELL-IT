@@ -27,14 +27,19 @@
         <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
     </nav>
     <div class="content">
-        <div class="Avatar"></div>
-
-        <form action="change_avatar" method="post" enctype="multipart/form-data" id="avatarForm">
+        <form action="change_avatar" method="post" enctype="multipart/form-data">
+            <p class="Change_avatar">Change avatar</p>
             <img class="avatar_preview" src="../../public/assets/profile_empty.png" alt="avatar_preview">
-
-            <input type="file" id="avatarInput" name="avatar" accept="image/*">
-            <button type="submit">Upload Avatar</button>
+            <input type="file" name="file"/><br/>
+            <button type="submit">Send</button>
         </form>
+
+        <form action="change_password" method="post">
+            <p class="Change_password">Change password</p>
+            <input class="input_field" type="password" name="old_password" placeholder="Old password">
+            <input class="input_field" type="password" name="new_password" placeholder="New password">
+            <input class="input_field" type="password" name="new_password_repeat" placeholder="Repeat new password">
+            <button type="submit">Send</button>
     </div>
 
     </div>

@@ -1,13 +1,8 @@
-
-
-
-
 .content {
     display: flex;
     flex: 1;
 
 }
-
 
 nav {
     display: flex;
@@ -61,7 +56,7 @@ nav {
     line-height: normal;
 }
 
-.find_template_text, .categories_text {
+p, .categories_text {
     color: #FFF;
     font-family: Poppins;
     font-size: 20px;
@@ -83,54 +78,59 @@ a {
     text-decoration: none;
 }
 
-
-
 form {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
+.avatar_preview {
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
 }
 
-input[type="file"] {
-    display: none;
+.input_field {
+    margin-top: 10px;
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: #3E3E55;
+    border-radius: 12px;
+    background-size: cover;
+    padding-left: 5%;
+    max-width: 95%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: #FFF; /* Kolor tekstu */
 }
 
 button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 15px;
+    margin-top: 10px;
+    padding: 0;
     border: none;
-    border-radius: 4px;
+    background: url('../../public/assets/sign_up.svg') no-repeat center center;
+    background-size: cover;
+    width: 200px;
+    height: 60px;
     cursor: pointer;
+
+
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: center;
 }
-
-.preview {
-    margin-top: 30px;
-}
-
-#avatarPreview {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media only screen and (max-width: 500px) {
@@ -138,38 +138,15 @@ button {
     .avatarImage{
         display: none;
     }
-    .category_tiles_container {
-        white-space: nowrap;
-        width: 80vw;
-    }
+
     .content {
         display: flex;
         flex-direction: column;
-    }
-    .categories_box {
-        height: auto;
-        width: 80vw;
-    }
-    .result_box {
-        width: 80vw;
-    }
-    .result_tiles_container {
-        width: 80vw;
-    }
-    .result_tile {
-        width: 80vw;
     }
 
     nav {
         display: block;
         height: 15vh;
-    }
-
-    .result_item_name {
-        font-size: 14px;
-    }
-    .category_name {
-        font-size: 14px;
     }
 
     .Options {
@@ -179,9 +156,4 @@ button {
     .textHome, .textAccount, .textCreate {
         font-size: 15px;
     }
-
-    .categories_box {
-        order: -1;
-    }
-
 }
