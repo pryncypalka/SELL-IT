@@ -60,7 +60,7 @@ nav {
 
 .your_offers, .your_templates {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -139,7 +139,7 @@ nav {
 
 .template_date {
     color: #FF6905;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -148,7 +148,7 @@ nav {
 
 .template_first_line {
     color: #2F2F42;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -158,7 +158,7 @@ nav {
 .template_name {
     margin-top: 20px;
     color: #2F2F42;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -183,7 +183,7 @@ nav {
 
 .offer_name {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -195,7 +195,7 @@ nav {
     justify-content: space-between;
     margin-bottom: 5px;
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -204,7 +204,7 @@ nav {
 
 .offer_price {
     color: #3D5CFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -213,7 +213,7 @@ nav {
 
 .offer_date {
     color: #FF6905;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;

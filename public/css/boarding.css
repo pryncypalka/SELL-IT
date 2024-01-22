@@ -54,30 +54,22 @@ nav {
 
 
 .login_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    margin-left: auto;
-
-      /* Ustawienia dla przycisku */
   display: inline-block;
-  padding: 0; 
+  padding: 0;
   border: none;
   background: url('../../public/assets/log_in.svg') no-repeat center center;
   background-size: cover;
-  width: 200px; 
+  width: 200px;
   height: 60px;
   cursor: pointer;
 
-  /* Styl tekstu na przycisku */
+
   color: #FFF;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 60px; 
+  line-height: 60px;
   text-align: center;
 
 }
@@ -87,24 +79,21 @@ nav {
     align-items: center;
     justify-content: center;
 
-    /* Ustawienia dla przycisku */
-  display: inline-block;
-  padding: 0; 
-  border: none;
-  background: url('../../public/assets/sign_up.svg') no-repeat center center;
-  background-size: cover;
-  width: 200px; 
-  height: 60px;
-  cursor: pointer;
-
-  /* Styl tekstu na przycisku */
-  color: #FFF;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 60px; 
-  text-align: center;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: url('../../public/assets/sign_up.svg') no-repeat center center;
+    background-size: cover;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: center;
 }
 
 
@@ -112,7 +101,7 @@ nav {
 .text1 {
     color: #FFF;
     text-align: left;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 35px;
     font-style: normal;
     font-weight: 700;
@@ -127,7 +116,7 @@ nav {
     justify-content: center;
     flex-shrink: 0;
     color: #2F2F42;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -166,9 +155,9 @@ nav {
     }
 
     nav {
-        flex-direction: column; /* Ustawienie flex-direction na "column" */
-        align-items: center; /* Wyśrodkowanie elementów wzdłuż osi poziomej */
-        height: auto; /* Usunięcie stałej wysokości, aby elementy mogły się dostosować */
+        flex-direction: column;
+        align-items: center;
+        height: auto; /
     }
 
     .login_button {

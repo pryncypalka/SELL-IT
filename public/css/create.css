@@ -60,7 +60,7 @@ nav {
 
 .find_template_text, .categories_text {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -160,7 +160,7 @@ nav {
     border-radius: 12px;
 
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -182,7 +182,7 @@ nav {
 
 .result_item_name {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -190,7 +190,7 @@ nav {
 }
 .result_category {
     color: #3D5CFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

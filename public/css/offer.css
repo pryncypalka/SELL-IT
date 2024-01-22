@@ -1,0 +1,200 @@
+.content {
+    display: flex;
+    flex: 1;
+
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vw;
+    padding: 20px;
+
+}
+.logo_container {
+    display: flex;
+    align-items: center; /* Wyrównanie elementów na osi krzyżowej */
+}
+
+.logo {
+    margin: 20px;
+    border-radius: 30px;
+    background: url(../assets/logo.png) lightgray 50% / cover no-repeat;
+}
+
+.Options {
+    display: flex;
+    width: 50vw;
+    justify-content: space-around;
+}
+
+.textLogo, .textHome, .textAccount  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.textCreate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #858597;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+label{
+    color: #FFF;
+    font-family: Poppins, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+
+.avatarImage{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    padding-right: 3vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 80vw;
+
+}
+
+input:not(.offer_price) {
+    margin-top: 10px;
+    font-size: 18px;
+    width: 350px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #FFF;
+    border-radius: 12px;
+    background-size: cover;
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: #3E3E55;
+}
+
+.offer_price {
+    margin-top: 10px;
+    font-size: 18px;
+    width: 150px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #FFF;
+    border-radius: 12px;
+    background-size: cover;
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: #3E3E55;
+}
+
+textarea {
+    margin-top: 10px;
+    font-size: 18px;
+    width: 500px;
+    height: 300px;
+    border: none;
+    outline: none;
+    background-color: #FFF;
+    border-radius: 12px;
+    background-size: cover;
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: #3E3E55;
+
+}
+
+.photo_preview {
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
+}
+
+button {
+    margin: 5px 5px 5px 5px;
+    background-color: #3D5CFF;
+    border-radius: 12px;
+    background-size: cover;
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    text-align: center;
+    overflow: hidden;
+}
+
+.button_container {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .avatarImage{
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav {
+        display: block;
+        height: 15vh;
+    }
+
+    .Options {
+        width: auto;
+    }
+
+    .textHome, .textAccount, .textCreate {
+        font-size: 15px;
+    }
+
+    input:not(.offer_price) {
+        width: 80vw;
+    }
+
+    textarea {
+        width: 80vw;
+    }
+}

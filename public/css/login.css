@@ -79,7 +79,7 @@ nav {
 
 .text1 {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 45px;
     font-style: normal;
     font-weight: 700;
@@ -89,7 +89,7 @@ nav {
 
 .text2 {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -99,7 +99,7 @@ nav {
 
 .field_name {
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
