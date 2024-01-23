@@ -8,15 +8,18 @@ class Template {
 
     private $createdAt;
 
+    private $isPublic;
 
 
-    public function __construct($title, $description, $item_id, $user_id, $createdAt)
+
+    public function __construct($title, $description, $item_id, $user_id, $createdAt, $isPublic = false)
     {
         $this->title = $title;
         $this->description = $description;
         $this->item_id = $item_id;
         $this->user_id = $user_id;
         $this->createdAt = $createdAt;
+        $this->isPublic = $isPublic;
     }
 
 
@@ -70,5 +73,15 @@ class Template {
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function getIsPublic()
+    {
+        return $this->isPublic;
+    }
+
+    public function setIsPublic($isPublic)
+    {
+        $this->isPublic = $isPublic;
     }
 }

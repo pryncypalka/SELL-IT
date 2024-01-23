@@ -1,39 +1,33 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ . '/../models/Offer.php';
-require_once __DIR__ . '/../repository/OfferRepository.php';
+require_once __DIR__ . '/../models/Item.php';
+require_once __DIR__ . '/../models/Template.php';
+
 require_once __DIR__ . '/../repository/TemplateRepository.php';
+require_once __DIR__ . '/../repository/ItemRepository.php';
 require_once __DIR__ . '/../repository/UserRepository.php';
-
-class DashboardController extends AppController
+class CreateController extends AppController
 {
-    const UPLOAD_DIRECTORY = '/../public/uploads/';
 
-    private $message = [];
-    private $offerRepository;
     private $TemplateRepository;
-    private $userRepository;
+    private $ItemRepository;
 
     public function __construct()
     {
         parent::__construct();
-        $this->userRepository = new UserRepository();
-        $this->offerRepository = new OfferRepository();
+        $this->ItemRepository = new ItemRepository();
         $this->TemplateRepository = new TemplateRepository();
+
     }
 
-    public function dashboard()
+    public function create()
     {
-        $userId = 22;
-        $userEmail = "email2@example.com";
-        $user = $this->userRepository->getUser($userEmail);
-        $offers = $this->offerRepository->getOffers($userId);
-        $templates = $this->TemplateRepository->getTemplatesByUserId($userId);
-
-        $this->render('dashboard', ['offers' => $offers, 'templates' => $templates, "user" => $user]);
+        $items = $this->ItemRepository->getItems();
+        $templates = $this->TemplateRepository->getTemplates();
+        $categories = $this->ItemRepository->getCategories();
+        $this->render('create', ['items' => $items, 'templates' => $templates, 'categories' => $categories]);
     }
-
     public function search()
     {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';

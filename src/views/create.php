@@ -33,130 +33,24 @@
                 <input  type="text" name="search_template" placeholder="Item name / category">
             </div>
             <div class="result_tiles_container">
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
-                <div class="result_tile">
-                    <div class="result_category">category</div>
-                    <div class="result_item_name">item_name</div>
-                </div>
+                <?php foreach ($items as $item): ?>
+                    <div class="result_tile">
+                        <div class="result_category"><?= $item->getCategoryName() . '/' . $item->getSubcategoryName() ?></div>
+                        <div class="result_item_name"><?= $item->getName() ?></div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
         <div class="categories_box">
         <div class="categories_text">Categories</div>
-        <div class="category_tiles_container">
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
+            <div class="result_tiles_container">
+                <?php foreach ($categories as $category): ?>
+                    <div class="category_tile">
+                        <div class="category_name"><?=$category?></div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-            <div class="category_tile">
-                <div class="category_name">name</div>
-                <div class="image_holder">
-                    <img class="category_image" src="../../public/assets/dashboard_image.svg" alt="category_image">
-                </div>
-            </div>
-
-
-
-
-
-        </div>
     </div>
     </div>
 </body>

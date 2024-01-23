@@ -31,5 +31,29 @@ class TemplateRepository extends Repository
         return $result;
     }
 
+    public function getTemplates(): array
+    {
+        $result = [];
+
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        SELECT * FROM public.templates
+WHERE is_public = true');
+        $stmt->execute();
+        $templates = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($templates as $templateData) {
+        $result[] = new Template(
+        $templateData['title'],
+        $templateData['description'],
+        $templateData['item_id'],
+        $templateData['user_id'],
+        $templateData['created_at'],
+        $templateData['is_public']
+        );
+        }
+
+        return $result;
+    }
 
 }
