@@ -1,19 +1,22 @@
 <?php
 
 class Template {
-    private $title;
-    private $description;
-    private $itemName;
-    private $userName;
+    protected $title;
+    protected $description;
+    protected $item_id;
+    protected $user_id;
+
+    private $createdAt;
 
 
 
-    public function __construct($title, $description, $itemName, $userName)
+    public function __construct($title, $description, $item_id, $user_id, $createdAt)
     {
         $this->title = $title;
         $this->description = $description;
-        $this->itemName = $itemName;
-        $this->userName = $userName;
+        $this->item_id = $item_id;
+        $this->user_id = $user_id;
+        $this->createdAt = $createdAt;
     }
 
 
@@ -37,23 +40,31 @@ class Template {
         $this->description = $description;
     }
 
-    public function getItemName()
+    public function getItemId()
     {
-        return $this->itemName;
+        return $this->item_id;
     }
 
-    public function setItemName($itemName)
+    public function setItemId($item_id)
     {
-        $this->itemName = $itemName;
+        $this->item_id = $item_id;
     }
 
-    public function getUserName()
+    public function getUserId()
     {
-        return $this->userName;
+        return $this->user_id;
     }
 
-    public function setUserName($userName)
+    public function setUserId($user_id)
     {
-        $this->userName = $userName;
+        $this->user_id = $user_id;
+    }
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
     }
 }

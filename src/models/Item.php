@@ -2,12 +2,14 @@
 
 class Item
 {
+    private $id;
     private $name;
     private $category_name;
     private $subcategory_name;
 
-    public function __construct($name, $category_name, $subcategory_name)
+    public function __construct($id, $name, $category_name, $subcategory_name)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->category_name = $category_name;
         $this->subcategory_name = $subcategory_name;
@@ -41,6 +43,16 @@ class Item
     public function setSubcategoryName($subcategory_name)
     {
         $this->subcategory_name = $subcategory_name;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        return $this->id = $id;
     }
     
 }

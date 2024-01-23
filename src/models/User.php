@@ -3,17 +3,19 @@
 class User {
     private $email;
     private $password;
-    private $role;
+    private $role_id;
     private $created_at;
     private $avatar_link;
+
 
     public function __construct($email, $password, $role, $created_at, $avatar_link)
     {
         $this->email = $email;
         $this->password = $password;
-        $this->role = $role;
+        $this->role_id = $role;
         $this->created_at = $created_at;
         $this->avatar_link = $avatar_link;
+
     }
 
     public function getEmail()
@@ -26,9 +28,9 @@ class User {
         return $this->password;
     }
 
-    public function getRole()
+    public function getRoleId()
     {
-        return $this->role;
+        return $this->role_id;
     }
 
     public function getCreatedAt()
@@ -51,9 +53,9 @@ class User {
         $this->password = $password;
     }
 
-    public function setRole($role)
+    public function setRoleId($role_id)
     {
-        $this->role = $role;
+        $this->role_id = $role_id;
     }
 
     public function setCreatedAt($created_at)
