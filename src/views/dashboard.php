@@ -24,52 +24,19 @@
                 <a class="textCreate" href="/create">CREATE</a>
                 <a class="textAccount" href="/account">ACCOUNT</a>
             </div>
-            <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
+            <img class="avatarImage" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatarImage">
         </nav>
         <div class="content">
             <div class="templates_box">
                 <div class="your_templates">Your templates</div>
                 <div class="template_tiles_container">
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name namen amena mena mename</div>
-                        <div class="template_date">datename name name nam ename</div>
-                        <div class="template_first_line">descript ionna mename namena mename</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
-                    <div class="template_tile">
-                        <div class="template_name">name</div>
-                        <div class="template_date">date</div>
-                        <div class="template_first_line">description</div>
-                    </div>
+                    <?php foreach ($templates as $template): ?>
+                        <div class="template_tile">
+                            <div class="template_name"><?= $template->getTitle(); ?></div>
+                            <div class="template_date"><?= $template->getCreatedAt(); ?></div>
+                            <div class="template_first_line"><?= $template->getDescription(); ?></div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -79,77 +46,17 @@
                     <input  type="text" name="search" placeholder="Find your offer">
                 </div>
                 <div class="offer_tiles_container">
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
+                    <?php foreach ($offers as $offer): ?>
+                        <div class="offer_tile">
+                            <img class="offer_image" src="../../public/uploads/offer_photos/<?= $offer->getFirstPhoto(); ?>" alt="offer_image">
+                            <div class="offer_info">
+                                <div class="offer_name"><?= $offer->getTitle(); ?></div>
+                                <div class="offer_first_line"><?= $offer->getDescription(); ?></div>
+                                <div class="offer_price"><?= $offer->getPrice(); ?></div>
+                                <div class="offer_date"><?= $offer->getOfferCreatedAt(); ?></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div><div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
-                    <div class="offer_tile">
-                        <img class="offer_image" src="../../public/assets/dashboard_image.svg" alt="offer_image">
-                        <div class="offer_info">
-                            <div class="offer_name">name</div>
-                            <div class="offer_first_line">description</div>
-                            <div class="offer_price">price</div>
-                            <div class="offer_date">date</div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
     </div>

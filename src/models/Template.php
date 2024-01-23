@@ -61,7 +61,11 @@ class Template {
     }
     public function getCreatedAt()
     {
-        return $this->createdAt;
+        if ($this->createdAt === null) {
+            return null;
+        }
+        $dateTime = new DateTime($this->createdAt);
+        return $dateTime->format('Y-m-d');
     }
     public function setCreatedAt($createdAt)
     {

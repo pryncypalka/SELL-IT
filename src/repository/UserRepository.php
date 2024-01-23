@@ -9,7 +9,7 @@ class UserRepository extends Repository
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
-        SELECT u.email, u.password_hashed, u.id_role, u.create_time, ud.photo_path
+        SELECT u.user_id, u.email, u.password_hashed, u.id_role, u.create_time, ud.photo_path
         FROM public.users u
         LEFT JOIN public.user_details ud ON u.id_user_details = ud.id_user_details
         WHERE u.email = :email
@@ -24,6 +24,7 @@ class UserRepository extends Repository
         }
 
         return new User(
+            $userData['user_id'],
             $userData['email'],
             $userData['password_hashed'],
             $userData['id_role'],
@@ -62,10 +63,4 @@ class UserRepository extends Repository
             $userDetailsId
         ]);
     }
-
-
-
-
-
-
 }

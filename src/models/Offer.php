@@ -36,7 +36,11 @@ class Offer
 
     public function getOfferCreatedAt()
     {
-        return $this->offerCreatedAt;
+        if (empty($this->offerCreatedAt)) {
+            return '';
+        }
+        $dateTime = new DateTime($this->offerCreatedAt);
+        return $dateTime->format('Y-m-d');
     }
 
     public function getPrice()
@@ -77,5 +81,15 @@ class Offer
     public function setPhotos($photos)
     {
         $this->photos = $photos;
+    }
+
+    public function getFirstPhoto()
+    {
+        if (!empty($this->photos)) {
+            return $this->photos[0];
+        } else {
+            // Jeżeli tablica $photos jest pusta, zwróć ścieżkę do obrazu "image-not-found-icon.png"
+            return 'image-not-found-icon.png';
+        }
     }
 }

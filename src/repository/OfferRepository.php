@@ -90,14 +90,16 @@ class OfferRepository extends Repository
     }
 
 
-    public function getOffers(): array
+    public function getOffers(int $userId): array
     {
         $result = [];
 
         $conn = $this->database->connect();
         $stmt = $conn->prepare('
-            SELECT * FROM public.offers;
-        ');
+        SELECT * FROM public.offers
+        WHERE user_id = :userId;
+    ');
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
         $stmt->execute();
         $offers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

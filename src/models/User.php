@@ -1,6 +1,7 @@
 <?php
 
 class User {
+    private $id;
     private $email;
     private $password;
     private $role_id;
@@ -8,8 +9,9 @@ class User {
     private $avatar_link;
 
 
-    public function __construct($email, $password, $role, $created_at, $avatar_link)
+    public function __construct($id, $email, $password, $role, $created_at, $avatar_link)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->password = $password;
         $this->role_id = $role;
@@ -40,7 +42,11 @@ class User {
 
     public function getAvatarLink()
     {
-        return $this->avatar_link;
+        if (!empty($this->AvatarLink)) {
+            return $this->avatar_link;
+        } else {
+            return 'profile_empty.png';
+        }
     }
 
     public function setEmail($email)
@@ -66,6 +72,16 @@ class User {
     public function setAvatarLink($avatar_link)
     {
         $this->avatar_link = $avatar_link;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+         $this->id = $id;
     }
 
 
