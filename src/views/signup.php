@@ -22,6 +22,15 @@
             <form class=" form_sign_up" action="signup" method="POST">
                 <div class="text1">Sign up</div>
                 <div class="text2">Create your account. It's free and only takes a minute.</div>
+                <div class="messages">
+                    <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <div class = field_name>Your Email</div>
                 <div class="input_field">
                     <input type="text" name="email" >

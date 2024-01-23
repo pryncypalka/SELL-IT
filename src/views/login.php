@@ -22,13 +22,15 @@
             <form class=" form_login" action="login" method="POST">
                 <div class="text1">Log in</div>
                 <div class="text2">Enter your details below</div>
-                <?php
-                        if(isset($messages)){
-                            foreach($messages as $message) {
-                                echo $message;
-                            }
+                <div class="messages">
+                    <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo $message;
                         }
+                    }
                     ?>
+                </div>
                 <div class = field_name>Your Email</div>
                 <div class="input_field">
                     <input type="text" name="email" >

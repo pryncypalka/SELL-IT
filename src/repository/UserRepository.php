@@ -9,11 +9,10 @@ class UserRepository extends Repository
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
-        SELECT u.user_id, u.email, u.password_hashed, u.id_role, u.create_time, ud.photo_path
-        FROM public.users u
-        LEFT JOIN public.user_details ud ON u.id_user_details = ud.id_user_details
-        WHERE u.email = :email
-    ');
+            SELECT * FROM public.users u 
+            LEFT JOIN public.user_details ud ON u.id_user_details = ud.id_user_details 
+            WHERE ud.email = :email
+        ');
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -24,43 +23,63 @@ class UserRepository extends Repository
         }
 
         return new User(
-            $userData['user_id'],
             $userData['email'],
             $userData['password_hashed'],
             $userData['id_role'],
             $userData['create_time'],
-            $userData['photo_path']
+            $userData['id_user_details']
+
         );
     }
 
     public function addUser(User $user)
     {
-        // Dodaj szczegóły użytkownika
-        $stmt = $this->database->connect()->prepare('
-        INSERT INTO public.user_details (photo_path)
-        VALUES (?)
-    ');
 
-        $avatarLink = $user->getAvatarLink();
-        $stmt->execute([
-            ($avatarLink !== null) ? $avatarLink : null
+
+        // Dodawanie szczegółów użytkownika
+        $stmtDetails = $this->database->connect()->prepare('
+            INSERT INTO public.user_details (photo_path, email)
+            VALUES (?, ?)
+        ');
+
+        $stmtDetails->execute([
+            null,
+            $user->getEmail()
         ]);
 
-        // Pobierz ID dodanych szczegółów użytkownika
-        $userDetailsId = $this->database->connect()->lastInsertId('user_details_id_user_details_seq');
 
-        // Dodaj użytkownika
-        $stmt = $this->database->connect()->prepare('
-        INSERT INTO public.users (email, password_hashed, id_role, create_time, id_user_details)
-        VALUES (?, ?, ?, ?, ?)
-    ');
+        $userDetailsId = $this->getUserDetailsIdByEmail($user->getEmail());
 
-        $stmt->execute([
-            $user->getEmail(),
+
+        $stmtUser = $this->database->connect()->prepare('
+            INSERT INTO public.users (password_hashed, create_time, id_user_details, id_role)
+            VALUES (?, ?, ?, ?)
+        ');
+
+        $stmtUser->execute([
             $user->getPassword(),
-            $user->getRoleId(),
             $user->getCreatedAt(),
-            $userDetailsId
+            $userDetailsId,
+            $user->getRoleId()
         ]);
+    }
+
+    public function getUserDetailsIdByEmail(string $email): ?int
+    {
+
+        $stmt = $this->database->connect()->prepare('
+        SELECT id_user_details
+FROM public.user_details
+WHERE email = :email');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data === false) {
+            return null;
+        }
+
+        return $data['id_user_details'];
     }
 }

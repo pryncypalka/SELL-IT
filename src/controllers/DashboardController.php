@@ -26,7 +26,7 @@ class DashboardController extends AppController
     public function dashboard()
     {
         $userId = 22;
-        $userEmail = "user2@example.com";
+        $userEmail = "email2@example.com";
         $user = $this->userRepository->getUser($userEmail);
         $offers = $this->offerRepository->getOffers($userId);
         $templates = $this->TemplateRepository->getTemplatesByUserId($userId);

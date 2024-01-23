@@ -9,7 +9,7 @@ class User {
     private $avatar_link;
 
 
-    public function __construct($id, $email, $password, $role, $created_at, $avatar_link)
+    public function __construct( $email, $password, $role, $created_at, $avatar_link, $id = null)
     {
         $this->id = $id;
         $this->email = $email;

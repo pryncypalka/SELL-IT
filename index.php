@@ -12,8 +12,8 @@ Router::get('create', 'DefaultController');
 Router::get('boarding', 'DefaultController');
 Router::get('account', 'DefaultController');
 Router::get('offer', 'DefaultController');
-Router::get('signup', 'DefaultController');
-Router::post('addImage', 'ImageController');
+Router::post('signup', 'SecurityController');
+
 
 
 Router::run($path);

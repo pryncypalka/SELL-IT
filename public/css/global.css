@@ -15,5 +15,13 @@ body {
     background: linear-gradient(180deg, #002842 0%, rgba(0, 155, 255, 0.70) 100%), linear-gradient(180deg, #FFF 0%, rgba(60, 179, 255, 0.70) 100%);
 }
 
+.messages {
+    display: flex;
+    flex-direction: column;
 
+    color: red;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
 

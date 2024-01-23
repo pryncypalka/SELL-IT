@@ -2,13 +2,20 @@
 
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/User.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController {
 
-    public function login()
-    {   
-        $user = new User('jsnow@pk.edu.pl', 'admin', 'Johnny', 'Snow', "link");
+    private $userRepository;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+    }
+
+    public function login()
+    {
         if (!$this->isPost()) {
             return $this->render('login');
         }
@@ -16,13 +23,43 @@ class SecurityController extends AppController {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if ($user->getEmail() !== $email  || $user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['bad data']]);
+        $user = $this->userRepository->getUser($email);
+
+
+
+        if (!$user || !password_verify($password, $user->getPassword())) {
+            return $this->render('login', ['messages' => ['Wrong password or email']]);
         }
-
-
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
+    }
+
+    public function signup()
+    {
+        if (!$this->isPost()) {
+            return $this->render('signup');
+        }
+        $date = new DateTime();
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmedPassword = $_POST['password2'];
+
+
+        if ($password !== $confirmedPassword) {
+            return $this->render('signup', ['messages' => ['Please provide proper password']]);
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
+        $user = new User($email, $hashedPassword, 2, $date->format('Y-m-d H:i:s'), null);
+        if ($this->userRepository->getUserDetailsIdByEmail($user->getEmail()) != null) {
+            return $this->render('signup', ['messages' => ['User with this email already exists']]);
+        }
+        $this->userRepository->addUser($user);
+
+
+        return $this->render('signup', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
 }
