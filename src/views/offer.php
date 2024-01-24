@@ -24,7 +24,7 @@
             <a class="textCreate" href="/create">CREATE</a>
             <a class="textAccount" href="/account">ACCOUNT</a>
         </div>
-        <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
+        <img class="avatarImage" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatarImage">
     </nav>
     <div class="content">
 

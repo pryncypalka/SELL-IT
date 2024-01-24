@@ -3,10 +3,14 @@
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/SessionController.php';
 
 class SecurityController extends AppController {
 
     private $userRepository;
+
+
+
 
     public function __construct()
     {
@@ -30,6 +34,8 @@ class SecurityController extends AppController {
         if (!$user || !password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password or email']]);
         }
+        $session = new SessionController();
+        $session->startSession($user->getId());
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
@@ -62,4 +68,8 @@ class SecurityController extends AppController {
 
         return $this->render('signup', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
+
+
+
+
 }

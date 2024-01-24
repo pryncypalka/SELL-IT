@@ -22,12 +22,43 @@ class UserRepository extends Repository
             return null;
         }
 
+
+
+
         return new User(
             $userData['email'],
             $userData['password_hashed'],
             $userData['id_role'],
             $userData['create_time'],
-            $userData['id_user_details']
+            $userData['photo_path'],
+            $userData['user_id']
+
+        );
+    }
+
+    public function getUserById(int $id): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users u 
+            LEFT JOIN public.user_details ud ON u.id_user_details = ud.id_user_details 
+            WHERE u.user_id = :id
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($userData === false) {
+            return null;
+        }
+
+        return new User(
+            $userData['email'],
+            $userData['password_hashed'],
+            $userData['id_role'],
+            $userData['create_time'],
+            $userData['photo_path'],
+            $userData['user_id']
 
         );
     }
@@ -81,5 +112,32 @@ WHERE email = :email');
         }
 
         return $data['id_user_details'];
+    }
+
+
+
+    public function changePassword(int $userId, string $password)
+    {
+        $stmt = $this->database->connect()->prepare('
+
+            UPDATE public.users
+            SET password_hashed = :password
+            WHERE user_id = :userId
+        ');
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function changeAvatar(int $userIdDetails, string $avatarLink)
+    {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE public.user_details
+            SET photo_path = :avatarLink
+            WHERE id_user_details = :userIdDetails
+        ');
+        $stmt->bindParam(':userIdDetails', $userIdDetails, PDO::PARAM_STR);
+        $stmt->bindParam(':avatarLink', $avatarLink, PDO::PARAM_STR);
+        $stmt->execute();
     }
 }

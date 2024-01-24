@@ -24,7 +24,7 @@
             <a class="textCreate" href="/create">CREATE</a>
             <a class="textAccount" href="/account">ACCOUNT</a>
         </div>
-        <img class="avatarImage" src="../../public/assets/profile_empty.png" alt="avatarImage">
+        <img class="avatarImage" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatarImage">
     </nav>
     <div class="content">
         <form action="change_avatar" method="post" enctype="multipart/form-data">
@@ -40,6 +40,7 @@
             <input class="input_field" type="password" name="new_password" placeholder="New password">
             <input class="input_field" type="password" name="new_password_repeat" placeholder="Repeat new password">
             <button type="submit">Send</button>
+        </form>
     </div>
 
     </div>
