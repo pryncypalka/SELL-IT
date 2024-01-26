@@ -14,7 +14,7 @@ Router::get('account', 'DashboardController');
 Router::get('offer', 'OfferController');
 Router::post('signup', 'SecurityController');
 Router::post('changePassword', 'SecurityController');
-Router::post('changeAvatar', 'SecurityController');
+Router::post('changeAvatar', 'DashboardController');
 
 
 Router::run($path);

@@ -9,13 +9,15 @@ require_once __DIR__ . '/../repository/ItemRepository.php';
 require_once __DIR__ . '/SessionController.php';
 class DashboardController extends AppController
 {
-    const MAX_FILE_SIZE =  5 * 1024 * 1024;
+    const MAX_FILE_SIZE =  10 * 1024 * 1024;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
-    private $message = [];
+
     private $offerRepository;
     private $TemplateRepository;
     private $userRepository;
     private $ItemRepository;
+
+    private $userId;
 
 
     public function __construct()
@@ -25,36 +27,35 @@ class DashboardController extends AppController
         $this->offerRepository = new OfferRepository();
         $this->TemplateRepository = new TemplateRepository();
         $this->ItemRepository = new ItemRepository();
+        $this->userId = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
     }
 
     public function dashboard()
     {
 
-        $userId = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
-
-        if (!$userId) {
+        if (!$this->userId) {
             header("Location: /login");
             exit();
         }
 
 
-        $user = $this->userRepository->getUserById($userId);
-        $offers = $this->offerRepository->getOffers($userId);
-        $templates = $this->TemplateRepository->getTemplatesByUserId($userId);
+        $user = $this->userRepository->getUserById($this->userId);
+        $offers = $this->offerRepository->getOffers($this->userId);
+        $templates = $this->TemplateRepository->getTemplatesByUserId($this->userId);
 
         $this->render('dashboard', ['offers' => $offers, 'templates' => $templates, "user" => $user]);
     }
 
     public function create()
     {
-        $userId = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
 
-        if (!$userId) {
+
+        if (!$this->userId) {
             header("Location: /login");
             exit();
         }
 
-        $user = $this->userRepository->getUserById($userId);
+        $user = $this->userRepository->getUserById($this->userId);
         $items = $this->ItemRepository->getItems();
         $templates = $this->TemplateRepository->getTemplates();
         $categories = $this->ItemRepository->getCategories();
@@ -63,14 +64,12 @@ class DashboardController extends AppController
 
     public function account()
     {
-        $userId = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
-
-        if (!$userId) {
+        if (!$this->userId) {
             header("Location: /login");
             exit();
         }
 
-        $user = $this->userRepository->getUserById($userId);
+        $user = $this->userRepository->getUserById($this->userId);
         $this->render('account', ['user' => $user]);
     }
 
@@ -92,24 +91,24 @@ class DashboardController extends AppController
 
     public function changeAvatar()
     {
-        $userId = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
 
-        if (!$userId) {
+
+        if (!$this->userId) {
             header("Location: /login");
             exit();
         }
 
-        $user = $this->userRepository->getUserById($userId);
+        $user = $this->userRepository->getUserById($this->userId);
 
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
 
-            $newAvatarLink = $this->handleUploadedAvatar($_FILES['file']);
+            $newAvatarLink = $this->handleUploadedAvatar($_FILES['file'], $this->userId);
 
             $UserDetailsId = $this->userRepository->getUserDetailsIdByEmail($user->getEmail());
             $this->userRepository->changeAvatar($UserDetailsId, $newAvatarLink);
-
-
-            header("Location: /account");
+            $messages_avatar[] = 'File uploaded successfully';
+            $user->setAvatarLink($newAvatarLink);
+            $this->render('account', ['user' => $user, 'messages_avatar' => $messages_avatar]);
         } else {
             // Handle invalid file or other errors
             return $this->render('account', ['user' => $user, 'message' => 'Invalid file or other error']);
@@ -130,19 +129,26 @@ class DashboardController extends AppController
         return true;
     }
 
-    private function handleUploadedAvatar($file)
+    private function handleUploadedAvatar($file, $userId)
     {
-        $uploadDir = dirname(__DIR__) . '/public/uploads/avatars/';
-        $uploadPath = $uploadDir . basename($file['name']);
+        if (!file_exists($file['tmp_name'])) {
+            return null;
+        }
 
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $avatarFileName = 'user' . $userId . '.' . $extension;
+
+        // Adjust the path based on your project structure
+        $uploadDir = __DIR__ . '/../../public/uploads/avatars/';
+        $uploadPath = $uploadDir . $avatarFileName;
 
         if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-            return '/uploads/avatars/' . basename($file['name']);
+            return $avatarFileName;
         } else {
-            // Zwróć null lub odpowiednią wartość w przypadku niepowodzenia
             return null;
         }
     }
+
 
 }
 

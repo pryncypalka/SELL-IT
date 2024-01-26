@@ -42,7 +42,9 @@ class User {
 
     public function getAvatarLink()
     {
-        if (!empty($this->AvatarLink)) {
+        $avatarPath = __DIR__ . '/../../public/uploads/avatars/' . $this->avatar_link;
+
+        if (!empty($this->avatar_link) && file_exists($avatarPath)) {
             return $this->avatar_link;
         } else {
             return 'profile_empty.png';

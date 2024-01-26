@@ -129,8 +129,13 @@ WHERE email = :email');
         $stmt->execute();
     }
 
-    public function changeAvatar(int $userIdDetails, string $avatarLink)
+    public function changeAvatar(int $userIdDetails,$avatarLink)
     {
+
+        if ($avatarLink == null) {
+            return;
+        }
+
         $stmt = $this->database->connect()->prepare('
             UPDATE public.user_details
             SET photo_path = :avatarLink
