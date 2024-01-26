@@ -56,4 +56,98 @@ WHERE is_public = true');
         return $result;
     }
 
+
+    public function getTemplateById($templateId): Template
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        SELECT * FROM templates WHERE template_id = :template_id;
+        ');
+
+        $stmt->bindParam(':template_id', $templateId, PDO::PARAM_INT);
+        $stmt->execute();
+        $templateData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new Template(
+        $templateData['title'],
+        $templateData['description'],
+        $templateData['item_id'],
+        $templateData['user_id'],
+        $templateData['created_at'],
+        $templateData['is_public']
+        );
+    }
+
+    public function addTemplatePrivate(Template $template): void
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        INSERT INTO templates (item_id, user_id, title, description, created_at, is_public)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ');
+
+        // Ustawianie wartości 'is_public' na false
+        $isPublic = false;
+
+        $stmt->execute([
+            $template->getItemId(),
+            $template->getUserId(),
+            $template->getTitle(),
+            $template->getDescription(),
+            $template->getCreatedAtWithTime(),
+            $isPublic
+        ]);
+    }
+
+    public function addTemplatePublic(Template $template): void
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        INSERT INTO templates (item_id, user_id, title, description, created_at, is_public)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ');
+
+        // Ustawianie wartości 'is_public' na false
+        $isPublic = true;
+
+        $stmt->execute([
+            $template->getItemId(),
+            $template->getUserId(),
+            $template->getTitle(),
+            $template->getDescription(),
+            $template->getCreatedAtWithTime(),
+            $isPublic
+        ]);
+    }
+    public function getPublicTemplatesByItemId($itemId): Template
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        SELECT * 
+        FROM templates 
+        WHERE item_id = :item_id 
+            AND is_public = true
+        LIMIT 1
+    ');
+
+        $stmt->bindParam(':item_id', $itemId, PDO::PARAM_INT);
+        $stmt->execute();
+        $templateData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($templateData)) {
+            // Handle the case when no template is found
+            // For example, throw an exception or return a default Template
+        }
+
+        $templateData = $templateData[0]; // Take the first (and only) row
+
+        return new Template(
+            $templateData['title'],
+            $templateData['description'],
+            $templateData['item_id'],
+            $templateData['user_id'],
+            $templateData['created_at']
+        );
+    }
+
 }

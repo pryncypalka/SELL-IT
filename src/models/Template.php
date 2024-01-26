@@ -70,6 +70,11 @@ class Template {
         $dateTime = new DateTime($this->createdAt);
         return $dateTime->format('Y-m-d');
     }
+
+    public function getCreatedAtWithTime()
+    {
+        return new $this->createdAt;
+    }
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;

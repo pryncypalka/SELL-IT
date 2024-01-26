@@ -49,4 +49,31 @@ JOIN public.categories c ON s.category_id = c.category_id
 
         return $result;
     }
+    public function getItemsWithTemplates(): array
+    {
+        $result = [];
+
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        SELECT item_id, item_name, subcategory_name, category_name
+        FROM public.public_templates_items
+    ');
+        $stmt->execute();
+        $itemsWithTemplates = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($itemsWithTemplates as $itemData) {
+            $result[] = new Item(
+                $itemData['item_id'],
+                $itemData['item_name'],
+                $itemData['category_name'],
+                $itemData['subcategory_name']
+            );
+        }
+
+        return $result;
+    }
+
+
 }
+
+

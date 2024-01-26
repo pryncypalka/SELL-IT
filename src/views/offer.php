@@ -28,29 +28,25 @@
     </nav>
     <div class="content">
 
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="add_offer" method="post" enctype="multipart/form-data">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" placeholder="Title" required>
+            <input type="text" id="title" name="title" placeholder="Title" required value="<?= $template->getTitle() ?>">
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="15" placeholder="Description" required></textarea>
+            <textarea id="description" name="description" rows="15" placeholder="Description" required><?= $template->getDescription() ?></textarea>
 
             <label for="price">Price:</label>
-            <input class="offer_price"  type="number" id="price" name="price" step="0.01" placeholder="Price" required>
+            <input class="offer_price" type="number" id="price" name="price" step="0.01" placeholder="Price" required>
 
             <label for="photos">Photos:</label>
             <input type="file" id="photo" name="photo" accept="image/*" multiple>
             <div class="photo_container">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
-                <img class="photo_preview" src="../../public/assets/profile_empty.png" alt="photo_preview">
+                <!-- Podgląd zdjęć -->
             </div>
+
             <div class="button_container">
-                <button type="submit">Save Offer</button>
-                <button type="submit" class="secondary">Save as Template (Title and Description only)</button>
+                <button type="submit" name="action" value="saveOffer">Save Offer</button>
+                <button type="submit" name="action" value="saveAsTemplate" class="secondary">Save as Template (Title and Description only)</button>
             </div>
         </form>
     </div>

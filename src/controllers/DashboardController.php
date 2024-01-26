@@ -56,10 +56,9 @@ class DashboardController extends AppController
         }
 
         $user = $this->userRepository->getUserById($this->userId);
-        $items = $this->ItemRepository->getItems();
-        $templates = $this->TemplateRepository->getTemplates();
+        $items = $this->ItemRepository->getItemsWithTemplates();
         $categories = $this->ItemRepository->getCategories();
-        $this->render('create', ['items' => $items, 'templates' => $templates, 'categories' => $categories, 'user' => $user]);
+        $this->render('create', ['items' => $items, 'categories' => $categories, 'user' => $user]);
     }
 
     public function account()

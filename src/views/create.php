@@ -34,10 +34,12 @@
             </div>
             <div class="result_tiles_container">
                 <?php foreach ($items as $item): ?>
-                    <div class="result_tile">
-                        <div class="result_category"><?= $item->getCategoryName() . '/' . $item->getSubcategoryName() ?></div>
-                        <div class="result_item_name"><?= $item->getName() ?></div>
-                    </div>
+                    <a href="/offer/<?= $item->getId(); ?>">
+                        <div class="result_tile">
+                            <div class="result_category"><?= $item->getCategoryName() . '/' . $item->getSubcategoryName() ?></div>
+                            <div class="result_item_name"><?= $item->getName() ?></div>
+                        </div>
+                    </a>
                 <?php endforeach; ?>
             </div>
         </div>
