@@ -71,9 +71,10 @@ class Template {
         return $dateTime->format('Y-m-d');
     }
 
-    public function getCreatedAtWithTime()
-    {
-        return new $this->createdAt;
+    public function getCreatedAtWithTime() {
+        $createdAt = $this->createdAt;
+        // Zwróć sformatowaną datę i czas
+        return date('Y-m-d H:i:s', strtotime($createdAt));
     }
     public function setCreatedAt($createdAt)
     {

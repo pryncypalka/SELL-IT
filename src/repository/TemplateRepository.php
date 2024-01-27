@@ -87,7 +87,7 @@ WHERE is_public = true');
     ');
 
         // Ustawianie wartości 'is_public' na false
-        $isPublic = false;
+        $isPublic = 0;
 
         $stmt->execute([
             $template->getItemId(),
@@ -108,7 +108,7 @@ WHERE is_public = true');
     ');
 
         // Ustawianie wartości 'is_public' na false
-        $isPublic = true;
+        $isPublic = 1;
 
         $stmt->execute([
             $template->getItemId(),

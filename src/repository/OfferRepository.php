@@ -53,27 +53,24 @@ class OfferRepository extends Repository
 
     public function addOffer(Offer $offer): void
     {
-        $date = new DateTime();
+
         $conn = $this->database->connect();
         $stmt = $conn->prepare('
             INSERT INTO public.offers (title, description, user_id, created_at, price)
             VALUES (?, ?, ?, ?, ?)
         ');
 
-        // TODO: Pobierz wartość tego pola z sesji użytkownika
-        $userId = 1;
-
         $stmt->execute([
             $offer->getTitle(),
             $offer->getDescription(),
-            $userId,
-            $date->format('Y-m-d H:i:s'),
+            $offer->getUserId(),
+            $offer->getOfferCreatedAt(),
             $offer->getPrice()
         ]);
 
         $offerId = $conn->lastInsertId(); // Pobierz ostatnio wstawiony ID oferty
 
-        // Dodaj zdjęcia oferty do tabeli photos
+
         $this->addOfferPhotos($conn, $offerId, $offer->getPhotos());
     }
 

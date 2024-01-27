@@ -28,21 +28,35 @@
     </nav>
     <div class="content">
 
-        <form action="add_offer" method="post" enctype="multipart/form-data">
+        <form action="addOffer" method="post" enctype="multipart/form-data">
+            <?php if (isset($messages) && is_array($messages)): ?>
+                <?php foreach ($messages as $message): ?>
+                    <div class="messages"><?= $message; ?></div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" placeholder="Title" required value="<?= $template->getTitle() ?>">
+            <input type="text" id="title" name="title" placeholder="Title" required value="<?= isset($title) ? $title : '' ?>">
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="15" placeholder="Description" required><?= $template->getDescription() ?></textarea>
+            <textarea id="description" name="description" rows="15" placeholder="Description" required><?= isset($description) ? $description : '' ?></textarea>
 
             <label for="price">Price:</label>
-            <input class="offer_price" type="number" id="price" name="price" step="0.01" placeholder="Price" required>
+            <input class="offer_price" type="number" id="price" name="price" step="0.01" placeholder="Price"  value="<?= isset($price) ? $price : '' ?>">
 
             <label for="photos">Photos:</label>
-            <input type="file" id="photo" name="photo" accept="image/*" multiple>
-            <div class="photo_container">
-                <!-- Podgląd zdjęć -->
-            </div>
+            <input type="file" id="photo" name="photo[]" accept="image/*" multiple>
+
+            <?php if (isset($photos) && is_array($photos)): ?>
+                <div class="photo_container">
+                    <?php foreach ($photos as $photo): ?>
+                        <img class="photo_preview" src="<?= $photo ?>" alt="photo_preview">
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div class="photo_container">
+                    <img class="photo_preview" src="../../public/uploads/offer_photos/image-not-found-icon.png" alt="photo_preview">
+                </div>
+            <?php endif; ?>
 
             <div class="button_container">
                 <button type="submit" name="action" value="saveOffer">Save Offer</button>

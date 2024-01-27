@@ -34,7 +34,7 @@
             </div>
             <div class="result_tiles_container">
                 <?php foreach ($items as $item): ?>
-                    <a href="/offer/<?= $item->getId(); ?>">
+                    <a href="/offer?item_id=<?= $item->getId(); ?>">
                         <div class="result_tile">
                             <div class="result_category"><?= $item->getCategoryName() . '/' . $item->getSubcategoryName() ?></div>
                             <div class="result_item_name"><?= $item->getName() ?></div>

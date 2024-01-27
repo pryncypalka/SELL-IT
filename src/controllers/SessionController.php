@@ -22,8 +22,8 @@ class SessionController extends AppController
     {
         session_unset();
         session_destroy();
-        header("Location: /login"); // Użyj pełnej ścieżki URL
-        exit(); // Zakończ działanie skryptu po przekierowaniu
+        header("Location: /login");
+        exit();
     }
 
     public function getIdUser(): ?int
