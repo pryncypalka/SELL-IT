@@ -1,6 +1,6 @@
 .content {
     display: flex;
-    flex: 1;
+    flex-direction: column;
 
 }
 
@@ -132,6 +132,14 @@ button {
     text-align: center;
 }
 
+#settings {
+    display: flex;
+    flex-direction: row;
+}
+
+#logout_button {
+    width: 100vw;
+}
 
 @media only screen and (max-width: 500px) {
 
@@ -139,7 +147,7 @@ button {
         display: none;
     }
 
-    .content {
+    #settings {
         display: flex;
         flex-direction: column;
     }
@@ -155,5 +163,9 @@ button {
 
     .textHome, .textAccount, .textCreate {
         font-size: 15px;
+    }
+
+    form {
+        width: 100vw;
     }
 }

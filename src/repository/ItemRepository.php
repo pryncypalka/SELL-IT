@@ -74,6 +74,7 @@ JOIN public.categories c ON s.category_id = c.category_id
     }
 
 
+
 }
 
 

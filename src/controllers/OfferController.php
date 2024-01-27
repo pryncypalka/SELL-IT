@@ -18,6 +18,7 @@ class OfferController extends AppController
     private $userRepository;
     private $userId;
 
+
     public function __construct()
     {
         parent::__construct();
@@ -78,6 +79,11 @@ class OfferController extends AppController
         if ($action == 'saveOffer') {
 
             $photos = $this->handleMultipleUploadedImage($_FILES['photo'], $this->userId);
+            if (empty($photos)) {
+                $this->render('offer', ['user' => $user, 'messages' => ['Invalid file format or 
+                File is too large for destination file system.']]);
+                return;
+            }
             $Offer = new Offer($title, $description, $this->userId, $formattedDateTime, $price, $photos);
 
             $this->offerRepository->addOffer($Offer);
@@ -118,20 +124,15 @@ class OfferController extends AppController
     private function validate(array $files, $key): bool
     {
         if (!isset($files['size'][$key]) || $files['size'][$key] > self::MAX_FILE_SIZE) {
-            $this->message[] = 'File is too large for destination file system.';
             return false;
         }
 
         if (!isset($files['type'][$key]) || !in_array($files['type'][$key], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'File type is not supported.';
             return false;
         }
 
         return true;
     }
-
-
-
 }
 
 

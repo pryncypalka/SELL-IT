@@ -27,30 +27,35 @@
         <img class="avatarImage" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatarImage">
     </nav>
     <div class="content">
-        <form action="changeAvatar" method="post" enctype="multipart/form-data">
-            <p class="Change_avatar">Change avatar</p>
-            <?php if (isset($messages_avatar) && is_array($messages_avatar)): ?>
-                <?php foreach ($messages_avatar as $message1): ?>
-                    <div class="messages"><?= $message1; ?></div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-            <img class="avatar_preview" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatar_preview">
-            <input type="file" name="file"/><br/>
-            <button type="submit">Send</button>
+        <form  action="logout" id="logout_button" method="post">
+            <button type="submit" name="logout">Logout</button>
         </form>
+        <div id="settings">
+            <form action="changeAvatar" method="post" enctype="multipart/form-data">
+                <p class="Change_avatar">Change avatar</p>
+                <?php if (isset($messages_avatar) && is_array($messages_avatar)): ?>
+                    <?php foreach ($messages_avatar as $message1): ?>
+                        <div class="messages"><?= $message1; ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <img class="avatar_preview" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatar_preview">
+                <input type="file" name="file"/><br/>
+                <button type="submit">Send</button>
+            </form>
 
-        <form action="changePassword" method="post">
-            <p class="Change_password">Change password</p>
-            <?php if (isset($messages) && is_array($messages)): ?>
-                <?php foreach ($messages as $message): ?>
-                    <div class="messages"><?= $message; ?></div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-            <input class="input_field" type="password" name="old_password" placeholder="Old password">
-            <input class="input_field" type="password" name="new_password" placeholder="New password">
-            <input class="input_field" type="password" name="new_password_repeat" placeholder="Repeat new password">
-            <button type="submit">Send</button>
-        </form>
+            <form action="changePassword" method="post">
+                <p class="Change_password">Change password</p>
+                <?php if (isset($messages) && is_array($messages)): ?>
+                    <?php foreach ($messages as $message): ?>
+                        <div class="messages"><?= $message; ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <input class="input_field" type="password" name="old_password" placeholder="Old password">
+                <input class="input_field" type="password" name="new_password" placeholder="New password">
+                <input class="input_field" type="password" name="new_password_repeat" placeholder="Repeat new password">
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
 
     </div>
