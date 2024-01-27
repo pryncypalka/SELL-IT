@@ -8,8 +8,9 @@ class Offer
     private $offerCreatedAt;
     private $price;
     private $photos = [];
+    private $id;
 
-    public function __construct($title, $description, $user_id, $offerCreatedAt, $price, $photos)
+    public function __construct($title, $description, $user_id, $offerCreatedAt, $price, $photos, $id = null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -17,6 +18,7 @@ class Offer
         $this->offerCreatedAt = $offerCreatedAt;
         $this->price = $price;
         $this->photos = $photos;
+        $this->id = $id;
     }
 
     public function getTitle()
@@ -91,5 +93,14 @@ class Offer
             // Jeżeli tablica $photos jest pusta, zwróć ścieżkę do obrazu "image-not-found-icon.png"
             return 'image-not-found-icon.png';
         }
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 }

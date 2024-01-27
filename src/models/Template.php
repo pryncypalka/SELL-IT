@@ -9,10 +9,10 @@ class Template {
     private $createdAt;
 
     private $isPublic;
+    private $id;
 
 
-
-    public function __construct($title, $description, $item_id, $user_id, $createdAt, $isPublic = false)
+    public function __construct($title, $description, $item_id, $user_id, $createdAt, $isPublic = false, $id= null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -20,8 +20,17 @@ class Template {
         $this->user_id = $user_id;
         $this->createdAt = $createdAt;
         $this->isPublic = $isPublic;
+        $this->id = $id;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
 
     public function getTitle()
     {

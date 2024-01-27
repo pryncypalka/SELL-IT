@@ -24,9 +24,14 @@ class TemplateRepository extends Repository
         $templateData['description'],
         $templateData['item_id'],
         $templateData['user_id'],
-        $templateData['created_at']
+        $templateData['created_at'],
+        $templateData['is_public'],
+        $templateData['template_id']
         );
+
         }
+
+
 
         return $result;
     }
@@ -49,7 +54,8 @@ WHERE is_public = true');
         $templateData['item_id'],
         $templateData['user_id'],
         $templateData['created_at'],
-        $templateData['is_public']
+        $templateData['is_public'],
+        $templateData['template_id']
         );
         }
 
@@ -74,7 +80,8 @@ WHERE is_public = true');
         $templateData['item_id'],
         $templateData['user_id'],
         $templateData['created_at'],
-        $templateData['is_public']
+        $templateData['is_public'],
+        $templateData['template_id']
         );
     }
 

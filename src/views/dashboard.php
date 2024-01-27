@@ -31,6 +31,7 @@
                 <div class="your_templates">Your templates</div>
                 <div class="template_tiles_container">
                     <?php foreach ($templates as $template): ?>
+                        <a href="/offer?template_id=<?= $template->getId(); ?>">
                         <div class="template_tile">
                             <div class="template_name"><?= $template->getTitle(); ?></div>
                             <div class="template_date"><?= $template->getCreatedAt(); ?></div>
@@ -47,6 +48,7 @@
                 </div>
                 <div class="offer_tiles_container">
                     <?php foreach ($offers as $offer): ?>
+                    <a href="/offer?offer_id=<?= $offer->getId(); ?>">
                         <div class="offer_tile">
                             <img class="offer_image" src="../../public/uploads/offer_photos/<?= $offer->getFirstPhoto(); ?>" alt="offer_image">
                             <div class="offer_info">

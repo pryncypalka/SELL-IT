@@ -29,7 +29,8 @@ class OfferRepository extends Repository
             $offerData['user_id'],
             $offerData['created_at'],
             $offerData['price'],
-            $photos
+            $photos,
+            $offerData['offer_id']
         );
     }
 
@@ -110,7 +111,8 @@ class OfferRepository extends Repository
                 $offerData['user_id'],
                 $offerData['created_at'],
                 $offerData['price'],
-                $photos
+                $photos,
+                $offerData['offer_id']
             );
         }
 

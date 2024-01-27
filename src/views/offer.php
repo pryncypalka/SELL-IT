@@ -49,7 +49,7 @@
             <?php if (isset($photos) && is_array($photos)): ?>
                 <div class="photo_container">
                     <?php foreach ($photos as $photo): ?>
-                        <img class="photo_preview" src="<?= $photo ?>" alt="photo_preview">
+                        <img class="photo_preview" src="../../public/uploads/offer_photos/<?= $photo ?>" alt="photo_preview">
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
