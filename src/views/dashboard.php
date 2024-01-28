@@ -27,38 +27,43 @@
             <img class="avatarImage" src="../../public/uploads/avatars/<?= $user->getAvatarLink(); ?>" alt="avatarImage">
         </nav>
         <div class="content">
-            <div class="templates_box">
-                <div class="your_templates">Your templates</div>
-                <div class="template_tiles_container">
-                    <?php foreach ($templates as $template): ?>
-                        <a href="/offer?template_id=<?= $template->getId(); ?>">
-                        <div class="template_tile">
-                            <div class="template_name"><?= $template->getTitle(); ?></div>
-                            <div class="template_date"><?= $template->getCreatedAt(); ?></div>
-                            <div class="template_first_line"><?= $template->getDescription(); ?></div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+            <div id="add_new"></div>
+                <a href="/offer" id="button_add_new">Add new Offer/Template</a>
             </div>
-
-            <div class="offers_box">
-                <div class="your_offers">Your Offers</div>
-                <div class="search_field">
-                    <input  type="text" name="search" placeholder="Find your offer">
-                </div>
-                <div class="offer_tiles_container">
-                    <?php foreach ($offers as $offer): ?>
-                    <a href="/offer?offer_id=<?= $offer->getId(); ?>">
-                        <div class="offer_tile">
-                            <img class="offer_image" src="../../public/uploads/offer_photos/<?= $offer->getFirstPhoto(); ?>" alt="offer_image">
-                            <div class="offer_info">
-                                <div class="offer_name"><?= $offer->getTitle(); ?></div>
-                                <div class="offer_first_line"><?= $offer->getDescription(); ?></div>
-                                <div class="offer_price"><?= $offer->getPrice(); ?></div>
-                                <div class="offer_date"><?= $offer->getOfferCreatedAt(); ?></div>
+            <div class="info">
+                <div class="templates_box">
+                    <div class="your_templates">Your templates</div>
+                    <div class="template_tiles_container">
+                        <?php foreach ($templates as $template): ?>
+                            <a href="/offer?template_id=<?= $template->getId(); ?>">
+                            <div class="template_tile">
+                                <div class="template_name"><?= $template->getTitle(); ?></div>
+                                <div class="template_date"><?= $template->getCreatedAt(); ?></div>
+                                <div class="template_first_line"><?= $template->getDescription(); ?></div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="offers_box">
+                    <div class="your_offers">Your Offers</div>
+                    <div class="search_field">
+                        <input  type="text" name="search" placeholder="Find your offer">
+                    </div>
+                    <div class="offer_tiles_container">
+                        <?php foreach ($offers as $offer): ?>
+                        <a href="/offer?offer_id=<?= $offer->getId(); ?>">
+                            <div class="offer_tile">
+                                <img class="offer_image" src="../../public/uploads/offer_photos/<?= $offer->getFirstPhoto(); ?>" alt="offer_image">
+                                <div class="offer_info">
+                                    <div class="offer_name"><?= $offer->getTitle(); ?></div>
+                                    <div class="offer_first_line"><?= $offer->getDescription(); ?></div>
+                                    <div class="offer_price"><?= $offer->getPrice(); ?></div>
+                                    <div class="offer_date"><?= $offer->getOfferCreatedAt(); ?></div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
     </div>
