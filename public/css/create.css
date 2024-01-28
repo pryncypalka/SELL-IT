@@ -230,6 +230,7 @@ a {
         width: 80vw;
     }
     .result_tiles_container {
+        white-space: nowrap;
         width: 80vw;
     }
     .result_tile {
