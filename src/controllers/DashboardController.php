@@ -154,6 +154,33 @@ class DashboardController extends AppController
         }
     }
 
+    public function deleteTemplate()
+    {
+        if ($this->isPost()) {
+            $templateId = $_POST['template_id'];
+
+
+            $this->TemplateRepository->deleteTemplate($templateId);
+
+
+            header("Location: /dashboard");
+            exit();
+        }
+    }
+
+    public function deleteOffer()
+    {
+        if ($this->isPost()) {
+            $offerId = $_POST['offer_id'];
+
+
+            $this->offerRepository->deleteOffer($offerId);
+
+            header("Location: /dashboard");
+            exit();
+        }
+    }
+
 
 
 

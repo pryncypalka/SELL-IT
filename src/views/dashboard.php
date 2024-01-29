@@ -58,6 +58,10 @@
                                     <div class="template_name"><?= $template->getTitle(); ?></div>
                                     <div class="template_date"><?= $template->getCreatedAt(); ?></div>
                                     <div class="template_first_line"><?= $template->getDescription(); ?></div>
+                                    <form action="deleteTemplate" method="post">
+                                        <input type="hidden" name="template_id" value="<?= $template->getId(); ?>">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this template?')">Delete</button>
+                                    </form>
                                 </div>
                             </a>
                         <?php endforeach; ?>
@@ -79,6 +83,10 @@
                                     <div class="offer_first_line"><?= $offer->getDescription(); ?></div>
                                     <div class="offer_price"><?= $offer->getPrice(); ?></div>
                                     <div class="offer_date"><?= $offer->getOfferCreatedAt(); ?></div>
+                                    <form action="deleteOffer" method="post">
+                                        <input type="hidden" name="offer_id" value="<?= $offer->getId(); ?>">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this offer?')">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         <?php endforeach; ?>

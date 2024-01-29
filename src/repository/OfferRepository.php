@@ -152,4 +152,14 @@ class OfferRepository extends Repository
 
         return $result;
     }
+
+    public function deleteOffer(int $offerId): void
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+            DELETE FROM public.offers WHERE offer_id = :offer_id
+        ');
+        $stmt->bindParam(':offer_id', $offerId, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

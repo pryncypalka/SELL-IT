@@ -137,4 +137,15 @@ WHERE is_public = true');
         );
     }
 
+    public function deleteTemplate($templateId): void
+    {
+        $conn = $this->database->connect();
+        $stmt = $conn->prepare('
+        DELETE FROM templates WHERE template_id = :template_id;
+        ');
+
+        $stmt->bindParam(':template_id', $templateId, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 }
