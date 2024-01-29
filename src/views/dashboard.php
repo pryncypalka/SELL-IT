@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../../public/css/dashboard.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script type="text/javascript" src="../../public/js/search.js" defer></script>
+    <script type="text/javascript" src="../../public/js/searchOffer.js" defer></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap"
         rel="stylesheet">
@@ -96,4 +96,21 @@
             </div>
     </div>
 </body>
-</html>
+
+
+<template id="offer_template">
+    <a href="">
+        <div class="offer_tile">
+            <img class="offer_image" src="" alt="offer_image">
+            <div class="offer_info">
+                <div class="offer_name">offer_name</div>
+                <div class="offer_first_line">offer_first_name</div>
+                <div class="offer_price">offer_price</div>
+                <div class="offer_date">offer_date</div>
+                <form action="deleteOffer" method="post">
+                    <input type="hidden" name="offer_id" value="offer_id">
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this offer?')">Delete</button>
+                </form>
+            </div>
+        </div>
+</template>

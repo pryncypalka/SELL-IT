@@ -127,29 +127,19 @@ class OfferRepository extends Repository
 
         $conn = $this->database->connect();
         $stmt = $conn->prepare('
-            SELECT * FROM public.offers
-            WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search
-        ');
-        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        SELECT o.*, op.photo_path AS first_photo
+        FROM public.offers o
+        LEFT JOIN (
+            SELECT offer_id, MIN(photo_path) AS photo_path
+            FROM public.photos
+            GROUP BY offer_id
+        ) op ON o.offer_id = op.offer_id
+        WHERE LOWER(o.title) LIKE :searchResult OR LOWER(o.description) LIKE :searchResult
+    ');
+        $stmt->bindParam(':searchResult', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-//        $result = [];
-//        foreach ($offers as $offerData) {
-//            $offerId = $offerData['offer_id'];
-//            $photos = $this->getOfferPhotos($conn, $offerId);
-//
-//            $result[] = new Offer(
-//                $offerData['title'],
-//                $offerData['description'],
-//                $offerData['user_id'],
-//                $offerData['created_at'],
-//                $offerData['price'],
-//                $photos
-//            );
-//        }
-//
-//        return $result;
     }
 
     public function deleteOffer(int $offerId): void

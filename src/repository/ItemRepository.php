@@ -80,9 +80,9 @@ JOIN public.categories c ON s.category_id = c.category_id
         $stmt = $this->database->connect()->prepare('
         SELECT item_id, item_name, subcategory_name, category_name
         FROM public.public_templates_items
-        WHERE LOWER(item_name) LIKE :search OR LOWER(subcategory_name) LIKE :search OR LOWER(category_name) LIKE :search
+        WHERE LOWER(item_name) LIKE :searchResult OR LOWER(subcategory_name) LIKE :searchResult OR LOWER(category_name) LIKE :searchResult
     ');
-        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->bindParam(':searchResult', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
 //        $result = [];
