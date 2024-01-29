@@ -182,16 +182,19 @@ nav {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    white-space: nowrap;
+
 }
 
 .template_name {
-    margin-top: 20px;
+    margin-top: 5px;
     color: #2F2F42;
     font-family: Poppins, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    white-space: nowrap;
 }
 
 .template_tile {

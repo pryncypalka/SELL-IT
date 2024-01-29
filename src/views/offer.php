@@ -37,8 +37,8 @@
             <?php if ($user->getRoleId() == 1 && isset($items)): ?>
                 <label for="isPublic">Visibility:</label>
                 <select name="isPublic" id="isPublic">
-                    <option value="1" <?= (isset($offer) && $offer->getIsPublic() == 0) ? 'selected' : ''; ?>>Private</option>
-                    <option value="0" <?= (isset($offer) && $offer->getIsPublic() == 1) ? 'selected' : ''; ?>>Public</option>
+                    <option value="0" <?= (isset($offer) && $offer->getIsPublic() == 0) ? 'selected' : ''; ?>>Private</option>
+                    <option value="1" <?= (isset($offer) && $offer->getIsPublic() == 1) ? 'selected' : ''; ?>>Public</option>
                 </select>
 
                 <label for="item">Select Item:</label>

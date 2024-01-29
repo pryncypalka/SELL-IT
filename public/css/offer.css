@@ -122,8 +122,8 @@ input:not(.offer_price) {
 textarea {
     margin-top: 10px;
     font-size: 18px;
-    width: 500px;
-    height: 300px;
+    width: 80vw;
+    height: 500px;
     border: none;
     outline: none;
     background-color: #FFF;
