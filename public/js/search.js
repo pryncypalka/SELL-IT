@@ -42,3 +42,24 @@ function createItems(item) {
 
     itemsContainer.appendChild(clone);
 }
+
+
+function searchByCategory(category) {
+    const searchInput = document.querySelector('input[placeholder="Item name / category"]');
+    searchInput.value = category;
+
+    const data = { search: category };
+
+    fetch("/searchResult", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (items) {
+        itemsContainer.innerHTML = "";
+        loadItems(items);
+    });
+}

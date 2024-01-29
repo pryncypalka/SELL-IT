@@ -44,17 +44,16 @@
                 <?php endforeach; ?>
             </div>
         </div>
-
         <div class="categories_box">
-        <div class="categories_text">Categories</div>
+            <div class="categories_text">Categories</div>
             <div class="result_tiles_container">
                 <?php foreach ($categories as $category): ?>
-                    <div class="category_tile">
-                        <div class="category_name"><?=$category?></div>
+                    <div class="category_tile" onclick="searchByCategory('<?= $category ?>')">
+                        <div class="category_name"><?= $category ?></div>
                     </div>
                 <?php endforeach; ?>
             </div>
-    </div>
+        </div>
     </div>
 </body>
 
