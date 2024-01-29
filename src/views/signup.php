@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../../public/css/signup.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script type="text/javascript" src="../../public/js/validateSignUp.js" defer></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap"
         rel="stylesheet">
@@ -34,15 +35,18 @@
                 <div class = field_name>Your Email</div>
                 <div class="input_field">
                     <input type="text" name="email" >
+                    <div class="email-message"></div>
                 </div>
                 <div class = field_name>Password</div>
                 <div class="input_field">
                     <input type="password" name="password" >
+                    <div class="password-message"></div>
                 </div>
                 <div class = field_name>Confirm password</div>
                 
                 <div class="input_field">
                     <input type="password" name="password2">
+                    <div class="password-message2"></div>
                 </div>
 
                 <button class="sign_up_button" type="submit">Create account</button>

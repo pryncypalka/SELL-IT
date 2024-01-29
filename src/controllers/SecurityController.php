@@ -46,25 +46,38 @@ class SecurityController extends AppController {
         if (!$this->isPost()) {
             return $this->render('signup');
         }
+
         $date = new DateTime();
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirmedPassword = $_POST['password2'];
 
+        $validationMessages = [];
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $validationMessages[] = 'Please provide a valid email address<br>';
+        }
 
         if ($password !== $confirmedPassword) {
-            return $this->render('signup', ['messages' => ['Please provide proper password']]);
+            $validationMessages[] = 'Please provide proper password<br>';
+        }
+
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', $password)) {
+            $validationMessages[] = 'Password must be at least 8 characters long, and include lowercase, uppercase, and a number<br>';
+        }
+
+        if ($this->userRepository->getUserDetailsIdByEmail($email) !== null) {
+            $validationMessages[] = 'User with this email already exists<br>';
+        }
+
+        if (!empty($validationMessages)) {
+            return $this->render('signup', ['messages' => $validationMessages]);
         }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-
         $user = new User($email, $hashedPassword, 2, $date->format('Y-m-d H:i:s'), null, null);
-        if ($this->userRepository->getUserDetailsIdByEmail($user->getEmail()) != null) {
-            return $this->render('signup', ['messages' => ['User with this email already exists']]);
-        }
         $this->userRepository->addUser($user);
-
 
         return $this->render('signup', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
