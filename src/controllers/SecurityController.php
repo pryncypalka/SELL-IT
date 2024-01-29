@@ -88,30 +88,30 @@ class SecurityController extends AppController {
             $newPassword = $_POST['new_password'];
             $newPasswordRepeat = $_POST['new_password_repeat'];
 
-            // Sprawdź poprawność starego hasła
+
             if (!password_verify($oldPassword, $user->getPassword())) {
                 $messages[] = 'Incorrect old password';
             }
 
-            // Sprawdź, czy nowe hasła są identyczne
+
             if ($newPassword !== $newPasswordRepeat) {
                 $messages[] = 'New passwords do not match';
             }
 
-            // Jeśli nie ma żadnych błędów, zmień hasło
+
             if (empty($messages)) {
                 $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 $this->userRepository->changePassword($userId, $hashedNewPassword);
 
-                // Dodaj komunikat o udanej zmianie hasła
+
                 $messages[] = 'Password has been changed successfully';
 
-                // Aktualizuj również dane użytkownika po zmianie hasła
+
                 $user = $this->userRepository->getUserById($userId);
             }
         }
 
-        // Renderuj widok z odpowiednimi danymi i komunikatami
+
         $this->render('account', ['user' => $user, 'messages' => $messages]);
     }
 

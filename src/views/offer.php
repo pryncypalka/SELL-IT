@@ -78,9 +78,7 @@
             <div class="button_container">
                 <button type="submit" name="action" value="saveOffer">Save As Offer</button>
                 <button type="submit" name="action" value="saveAsTemplate" class="secondary">Save as Template (Title and Description only)</button>
-                <?php if (isset($template_id) || isset($offer_id)): ?>
-                    <button type="submit" name="action" value="edit" class="secondary">Edit</button>
-                <?php endif; ?>
+
             </div>
         </form>
     </div>

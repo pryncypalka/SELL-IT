@@ -54,14 +54,14 @@ class OfferController extends AppController
             $description = $offer->getDescription();
             $price = $offer->getPrice();
             $photos = $offer->getPhotos();
-            return $this->render('offer', ['user' => $user, 'title' => $title, 'description' => $description, 'price' => $price, 'photos'=> $photos, "offer_id" => $Id]);
+            return $this->render('offer', ['user' => $user, 'title' => $title, 'description' => $description, 'price' => $price, 'photos'=> $photos]);
         } elseif (isset($_GET['template_id'])) {
             $Id = $_GET['template_id'];
             $items = $this->itemRepository->getItems();
             $offer = $this->TemplateRepository->getTemplateById($Id);
             $title = $offer->getTitle();
             $description = $offer->getDescription();
-            return $this->render('offer', ['user' => $user, 'title' => $title, 'description' => $description, 'items' => $items, "offer" => $offer, "template_id" => $Id]);
+            return $this->render('offer', ['user' => $user, 'title' => $title, 'description' => $description, 'items' => $items, "offer" => $offer]);
         }
         $items = $this->itemRepository->getItems();
         return $this->render('offer', ['user' => $user, 'items' => $items]);
