@@ -21,5 +21,7 @@ Router::post('addOffer', 'OfferController');
 Router::post('deleteTemplate', 'DashboardController');
 Router::post('deleteOffer', 'DashboardController');
 
+Router::post('searchOffer', 'DashboardController');
+Router::post('searchResult', 'DashboardController');
 
 Router::run($path);

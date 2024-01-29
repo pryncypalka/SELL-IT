@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../../public/css/dashboard.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script type="text/javascript" src="../../public/js/search.js" defer></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap"
         rel="stylesheet">

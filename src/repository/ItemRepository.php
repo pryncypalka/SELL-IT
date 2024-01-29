@@ -73,7 +73,32 @@ JOIN public.categories c ON s.category_id = c.category_id
         return $result;
     }
 
+    public function getItemsByName(string $searchString): array
+    {
+        $searchString = '%' . strtolower($searchString) . '%';
 
+        $stmt = $this->database->connect()->prepare('
+        SELECT item_id, item_name, subcategory_name, category_name
+        FROM public.public_templates_items
+        WHERE LOWER(item_name) LIKE :search OR LOWER(subcategory_name) LIKE :search OR LOWER(category_name) LIKE :search
+    ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+//        $result = [];
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//        foreach ($items as $itemData) {
+//            $result[] = new Item(
+//                $itemData['item_id'],
+//                $itemData['item_name'],
+//                $itemData['category_name'],
+//                $itemData['subcategory_name']
+//            );
+//        }
+//
+//        return $result;
+    }
 
 }
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Create</title>
+    <script type="text/javascript" src="../../public/js/search.js" defer></script>
     <link rel="stylesheet" href="../../public/css/create.css">
     <link rel="stylesheet" href="../../public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +31,7 @@
         <div class="result_box">
             <div class="find_template_text">Find the appropriate template</div>
             <div class="search_field">
-                <input  type="text" name="search_template" placeholder="Item name / category">
+                <input type="text" name="search_template" placeholder="Item name / category">
             </div>
             <div class="result_tiles_container">
                 <?php foreach ($items as $item): ?>
@@ -56,4 +57,17 @@
     </div>
     </div>
 </body>
-</html>
+
+
+<template id="result_template">
+    <a href="">
+        <div class="result_tile">
+            <div class="result_category">itemCategory</div>
+            <div class="result_item_name">itemName</div>
+        </div>
+    </a>
+</template>
+
+
+
+

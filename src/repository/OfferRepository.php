@@ -133,24 +133,23 @@ class OfferRepository extends Repository
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
-        $offers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $result = [];
-        foreach ($offers as $offerData) {
-            $offerId = $offerData['offer_id'];
-            $photos = $this->getOfferPhotos($conn, $offerId);
-
-            $result[] = new Offer(
-                $offerData['title'],
-                $offerData['description'],
-                $offerData['user_id'],
-                $offerData['created_at'],
-                $offerData['price'],
-                $photos
-            );
-        }
-
-        return $result;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+//        $result = [];
+//        foreach ($offers as $offerData) {
+//            $offerId = $offerData['offer_id'];
+//            $photos = $this->getOfferPhotos($conn, $offerId);
+//
+//            $result[] = new Offer(
+//                $offerData['title'],
+//                $offerData['description'],
+//                $offerData['user_id'],
+//                $offerData['created_at'],
+//                $offerData['price'],
+//                $photos
+//            );
+//        }
+//
+//        return $result;
     }
 
     public function deleteOffer(int $offerId): void

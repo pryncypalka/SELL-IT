@@ -181,10 +181,30 @@ class DashboardController extends AppController
         }
     }
 
+    public function searchResult()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
+        if ($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
 
+            header('Content-type: application/json');
+            http_response_code(200);
 
+            echo json_encode($this->ItemRepository->getItemsByName($decoded['search']));
+        }
 
+    }
+
+    public function searchOffer()
+    {
+        if ($this->isPost()) {
+            $search = $_POST['search'];
+            $offers = $this->offerRepository->getOffersByTitle($search);
+            $this->render('dashboard', ['offers' => $offers]);
+        }
+    }
 }
 
 
