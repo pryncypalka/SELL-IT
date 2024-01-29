@@ -9,7 +9,6 @@ Router::get('', 'DefaultController');
 Router::post('login', 'SecurityController');
 Router::get('dashboard', 'DashboardController');
 Router::get('create', 'DashboardController');
-Router::get('boarding', 'DefaultController');
 Router::get('account', 'DashboardController');
 Router::get('offer', 'OfferController');
 
