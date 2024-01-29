@@ -59,7 +59,7 @@ class SecurityController extends AppController {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-        $user = new User($email, $hashedPassword, 2, $date->format('Y-m-d H:i:s'), null);
+        $user = new User($email, $hashedPassword, 2, $date->format('Y-m-d H:i:s'), null, null);
         if ($this->userRepository->getUserDetailsIdByEmail($user->getEmail()) != null) {
             return $this->render('signup', ['messages' => ['User with this email already exists']]);
         }

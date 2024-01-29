@@ -34,6 +34,22 @@
                     <div class="messages"><?= $message; ?></div>
                 <?php endforeach; ?>
             <?php endif; ?>
+            <?php if ($user->getRoleId() == 1 && isset($items)): ?>
+                <label for="isPublic">Visibility:</label>
+                <select name="isPublic" id="isPublic">
+                    <option value="1" <?= (isset($offer) && $offer->getIsPublic() == 0) ? 'selected' : ''; ?>>Private</option>
+                    <option value="0" <?= (isset($offer) && $offer->getIsPublic() == 1) ? 'selected' : ''; ?>>Public</option>
+                </select>
+
+                <label for="item">Select Item:</label>
+                <select name="item" id="item">
+                    <?php foreach ($items as $item): ?>
+                        <option value="<?= $item->getId(); ?>" <?= (isset($offer) && $offer->getItemId() == $item->getId()) ? 'selected' : ''; ?>>
+                            <?= $item->getName(); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            <?php endif; ?>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Title" required value="<?= isset($title) ? $title : '' ?>">
 
@@ -50,6 +66,7 @@
                 <div class="photo_container">
                     <?php foreach ($photos as $photo): ?>
                         <img class="photo_preview" src="../../public/uploads/offer_photos/<?= $photo ?>" alt="photo_preview">
+
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
@@ -59,8 +76,11 @@
             <?php endif; ?>
 
             <div class="button_container">
-                <button type="submit" name="action" value="saveOffer">Save Offer</button>
+                <button type="submit" name="action" value="saveOffer">Save As Offer</button>
                 <button type="submit" name="action" value="saveAsTemplate" class="secondary">Save as Template (Title and Description only)</button>
+                <?php if (isset($template_id) || isset($offer_id)): ?>
+                    <button type="submit" name="action" value="edit" class="secondary">Edit</button>
+                <?php endif; ?>
             </div>
         </form>
     </div>

@@ -85,7 +85,9 @@ WHERE is_public = true');
         );
     }
 
-    public function addTemplatePrivate(Template $template): void
+
+
+    public function addTemplate(Template $template): void
     {
         $conn = $this->database->connect();
         $stmt = $conn->prepare('
@@ -93,8 +95,7 @@ WHERE is_public = true');
         VALUES (?, ?, ?, ?, ?, ?)
     ');
 
-        // Ustawianie wartości 'is_public' na false
-        $isPublic = 0;
+
 
         $stmt->execute([
             $template->getItemId(),
@@ -102,28 +103,7 @@ WHERE is_public = true');
             $template->getTitle(),
             $template->getDescription(),
             $template->getCreatedAtWithTime(),
-            $isPublic
-        ]);
-    }
-
-    public function addTemplatePublic(Template $template): void
-    {
-        $conn = $this->database->connect();
-        $stmt = $conn->prepare('
-        INSERT INTO templates (item_id, user_id, title, description, created_at, is_public)
-        VALUES (?, ?, ?, ?, ?, ?)
-    ');
-
-        // Ustawianie wartości 'is_public' na false
-        $isPublic = 1;
-
-        $stmt->execute([
-            $template->getItemId(),
-            $template->getUserId(),
-            $template->getTitle(),
-            $template->getDescription(),
-            $template->getCreatedAtWithTime(),
-            $isPublic
+            $template->getIsPublic()
         ]);
     }
     public function getPublicTemplatesByItemId($itemId): Template

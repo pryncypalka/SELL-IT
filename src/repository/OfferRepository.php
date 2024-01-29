@@ -61,12 +61,14 @@ class OfferRepository extends Repository
             VALUES (?, ?, ?, ?, ?)
         ');
 
+        $price = $offer->getPrice() !== "" ? $offer->getPrice() : null;
+
         $stmt->execute([
             $offer->getTitle(),
             $offer->getDescription(),
             $offer->getUserId(),
             $offer->getOfferCreatedAt(),
-            $offer->getPrice()
+            $price
         ]);
 
         $offerId = $conn->lastInsertId(); // Pobierz ostatnio wstawiony ID oferty
