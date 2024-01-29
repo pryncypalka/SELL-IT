@@ -36,11 +36,30 @@
                     <div class="template_tiles_container">
                         <?php foreach ($templates as $template): ?>
                             <a href="/offer?template_id=<?= $template->getId(); ?>">
-                            <div class="template_tile">
-                                <div class="template_name"><?= $template->getTitle(); ?></div>
-                                <div class="template_date"><?= $template->getCreatedAt(); ?></div>
-                                <div class="template_first_line"><?= $template->getDescription(); ?></div>
-                            </div>
+                                <div class="template_tile">
+                                    <?php if (isset($items)): ?>
+                                        <?php
+                                        $itemId = $template->getItemId();
+                                        $matchingItem = null;
+
+
+                                        foreach ($items as $item) {
+                                            if ($item->getId() == $itemId) {
+                                                $matchingItem = $item;
+                                                break;
+                                            }
+                                        }
+
+                                        if ($matchingItem): ?>
+                                            <div class="template_date"><?= $matchingItem->getName(); ?></div>
+                                            <div class="template_date"><?= $matchingItem->getSubcategoryName(); ?></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <div class="template_name"><?= $template->getTitle(); ?></div>
+                                    <div class="template_date"><?= $template->getCreatedAt(); ?></div>
+                                    <div class="template_first_line"><?= $template->getDescription(); ?></div>
+                                </div>
+                            </a>
                         <?php endforeach; ?>
                     </div>
                 </div>

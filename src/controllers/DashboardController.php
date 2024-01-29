@@ -41,9 +41,15 @@ class DashboardController extends AppController
 
         $user = $this->userRepository->getUserById($this->userId);
         $offers = $this->offerRepository->getOffers($this->userId);
-        $templates = $this->TemplateRepository->getTemplatesByUserId($this->userId);
+        if ($user->getRoleId() == 1) {
+            $templates = $this->TemplateRepository->getTemplates();
+            $items = $this->ItemRepository->getItems();
+            $this->render('dashboard', ['offers' => $offers, 'templates' => $templates, "user" => $user, 'items' => $items]);
+        } else {
+            $templates = $this->TemplateRepository->getTemplatesByUserId($this->userId);
+            $this->render('dashboard', ['offers' => $offers, 'templates' => $templates, "user" => $user]);
+        }
 
-        $this->render('dashboard', ['offers' => $offers, 'templates' => $templates, "user" => $user]);
     }
 
     public function create()
