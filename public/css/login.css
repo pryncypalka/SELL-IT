@@ -115,13 +115,12 @@ nav {
     border-radius: 12px;
     background-size: cover;
     padding-left: 5%;
-    max-width: 95%; 
-    overflow: hidden; 
+    max-width: 95%;
+    overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
     color: #FFF; /* Kolor tekstu */
-  }
-
+}
 
 
 @media only screen and (max-width: 500px) {

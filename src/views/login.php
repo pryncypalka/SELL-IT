@@ -39,14 +39,10 @@
                 <div class="input_field">
                     <input type="password" name="password" >
                 </div>
-                <div class = field_name>Forget password?</div>
                 <button class="log_in_button" type="submit">Log in</button>
                 <div class = field_name>Don't have an account?</div>
                 <a class="signup_link" href="/signup">Sign up</a>
-                
             </form>
-
-            
 
             <div class="picture_box">
                     <img class="picture" src="../../public/assets/Login_image.svg" alt="image">
