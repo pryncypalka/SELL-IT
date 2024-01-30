@@ -58,32 +58,32 @@ Once the containers are operational, access the application through your browser
 ### Login Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Login Page]() | ![Mobile Login Page]()
+![Login Page](Views_screen_shots/Log%20in%20–%20Opera.png) | ![Mobile Login Page](Views_screen_shots/login.png)
 
 ### Sign-up Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Sign-up Page]() | ![Mobile Sign-up Page]()
+![Sign-up Page](Views_screen_shots/Sign_up%20–%20Opera.png) | ![Mobile Sign-up Page](Views_screen_shots/signup.png)
 
 ### Home Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Home Page]() | ![Mobile Home Page]()
+![Home Page](Views_screen_shots/HomePage%20–%20Opera.png) | ![Mobile Home Page](Views_screen_shots/dashboard.png)
 
 ### Offer Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Offer Page]() | ![Mobile Offer Page]()
+![Offer Page](Views_screen_shots/offer%20–%20Opera.png) | ![Mobile Offer Page](Views_screen_shots/offer.png)
 
 ### Create Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Create Page]() | ![Mobile Create Page]()
+![Create Page](Views_screen_shots/Create%20–%20Opera.png) | ![Mobile Create Page](Views_screen_shots/create.png)
 
 ### Account Page
 Desktop | Mobile
 :-------------------------:|:-------------------------:
-![Account Page]() | ![Mobile Account Page]()
+![Account Page](Views_screen_shots/Account%20–%20Opera.png) | ![Mobile Account Page](Views_screen_shots/account.png)
 
 ## Author
 Jacek Kamiński
